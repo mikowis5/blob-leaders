@@ -1,0 +1,22 @@
+{
+  "players": [
+    {
+      "classNumber": "VII B",
+      "points": 10,
+      "place": 1,
+      "characterId": 1
+    },
+    {
+      "classNumber": "VI A",
+      "points": 6,
+      "place": 2,
+      "characterId": 2
+    },
+    {
+      "classNumber": "VII C",
+      "points": 4,
+      "place": 3,
+      "characterId": 3
+    }
+  ]
+}
