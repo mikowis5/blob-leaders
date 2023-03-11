@@ -1,14 +1,23 @@
-import PlayerData from "./PlayerData";
+import PlayerData from "./PlayerData.type";
 
 type Props = {
-  data: PlayerData
+  data: PlayerData,
+  place: number
 }
 
-const PlayerRow: React.FC<Props> = ({data}: Props) => {
-  return <div>
-    <strong>PlayerRow</strong>
-    <span> Miejsce: {data.place}, Klasa: {data.classNumber}, Pkt: {data.points}, CharacterId: {data.characterId}</span>
-  </div>
+const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
+
+  const { classNumber, points, characterId } = data;
+
+  return (
+    <div className="player-row">
+      <span><i>{place}.</i> Class: {classNumber}, CharacterId: {characterId}</span>
+      <div>
+        <strong>{points}</strong>
+        <button style={{ marginLeft: '0.25rem' }}>+</button>
+      </div>
+    </div>
+  );
 }
 
 export default PlayerRow;

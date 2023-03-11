@@ -4,7 +4,9 @@ type Props = {
 
 const LeaderBoardContainer: React.FC<Props> = ({children} : Props) => {
 
-  return <div>{children}</div>
+  return (
+    <div className="leader-board-container">{children}</div>
+  )
 
 }
 

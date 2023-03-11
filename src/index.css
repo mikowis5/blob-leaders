@@ -12,7 +12,22 @@ body {
 }
 
 .app-screen {
-  background: #ccc;
+  background: #f2edff;
   width: 100vh;
   height: 100vh;
+  overflow: hidden;
+}
+
+.leader-board-container {
+  width: 80%;
+}
+
+.player-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 2px 2px 5px rgba(0,0,0,.125);
 }

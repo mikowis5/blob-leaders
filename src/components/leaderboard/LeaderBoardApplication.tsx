@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LeaderBoardContainer from "./LeaderBoardContainer";
-import PlayerData from "./row/PlayerData";
+import PlayerData from "./row/PlayerData.type";
 import PlayerRow from "./row/PlayerRow";
 import _mockupData from "../../data/mockupPlayerData.json";
 
@@ -12,10 +12,7 @@ const LeaderBoardApplication: React.FC = () => {
 
   return (
     <LeaderBoardContainer>
-      <span>LeaderBoardContainer</span>
-      <div>
-        {playersData.map((p: PlayerData, i) => <PlayerRow key={i} data={p} />)}
-      </div>
+        {playersData.map((p: PlayerData, i) => <PlayerRow key={i} data={p} place={i+1} />)}
     </LeaderBoardContainer>
   )
 
