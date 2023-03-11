@@ -2,7 +2,7 @@ import LeaderBoardApplication from './components/leaderboard/LeaderBoardApplicat
 
 const App: React.FC = () => {
   return (
-    <div className="app-screen">
+    <div className="app-screen">  
       <LeaderBoardApplication />
     </div>
   );

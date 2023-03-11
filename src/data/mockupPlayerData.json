@@ -1,26 +1,31 @@
 {
   "players": [
     {
+      "id": 1,
       "classNumber": "VII B",
       "points": 10,
       "characterId": 1
     },
     {
+      "id": 2,
       "classNumber": "VI A",
       "points": 6,
       "characterId": 2
     },
     {
+      "id": 3,
       "classNumber": "VII C",
       "points": 4,
       "characterId": 3
     },
     {
+      "id": 4,
       "classNumber": "VIII B",
       "points": 3,
       "characterId": 4
     },
     {
+      "id": 5,
       "classNumber": "VI A",
       "points": 1,
       "characterId": 5
