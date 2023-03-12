@@ -5,7 +5,7 @@ import leftPlatform from '../../../assets/img/platforms/standing_platform.png'
 import rightPlatform from '../../../assets/img/platforms/points_platform.png';
 
 
-const Platform = styled.div<{ rowHeight: number, backgroundImage: string }>`
+export const Platform = styled.div<{ rowHeight: number, backgroundImage: string }>`
   width: ${({ rowHeight }) => rowHeight}px;
   height: ${({ rowHeight }) => rowHeight}px;
   background-image: url('${({ backgroundImage }) => backgroundImage}');
@@ -15,7 +15,7 @@ const Platform = styled.div<{ rowHeight: number, backgroundImage: string }>`
   background-size: cover;
 `;
 
-const No = styled.span<{ fontSize: number, marginLeft: number, textOpacity: number }>`
+export const No = styled.span<{ fontSize: number, marginLeft: number, textOpacity: number }>`
   font-size: ${({ fontSize }) => fontSize}px;
   -webkit-text-stroke: 3px black;
   text-stroke: 3px black;
@@ -41,7 +41,7 @@ const EdgePlatform: React.FC<Props> = ({displayNumber, placement}: Props) => {
     <Platform rowHeight={rowHeight} backgroundImage={backgroundImage}>
       <No 
         fontSize={fontSize} 
-        marginLeft={5}
+        marginLeft={4}
         textOpacity={textOpacity}
       >{displayNumber}</No>
     </Platform>

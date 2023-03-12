@@ -11,6 +11,7 @@ import useAnimation from "../../../animations/animationsHook";
 import EdgePlatform from "./EdgePlatform";
 import MainPlatform from "./MainPlatform";
 import { selectRowHeight } from "../../../state/ui/selectors/selectRowHeight";
+import AddPointsProvider from "./AddPointsProvider";
 
 
 const RowContainer = styled.div<{ margin: number }>`
@@ -34,25 +35,14 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
   const rowMargin = 30;
   const rowHeight = useAtomValue(selectRowHeight) + rowMargin;
 
+  /**
+   * Move row down when another row takesover
+   */
   const runDownAnimation = useAnimation({
     setter: setOffsetY,
     frames: [0, 1],
     values: [-rowHeight, 0],
   });
-
-  const runUpAnimation = useAnimation({
-    setter: setOffsetY,
-    frames: [0, 1],
-    values: [rowHeight * countAhead, 0],
-  });
-
-  const isAnimating = useAtomValue(isAnimatingAtom);
-  const addPointsToPlayer = useSetAtom(addPointsToPlayerAction);
-  const runMoveRowsAnimation = useMoveRowsAnimation();
-
-  /**
-   * Move row down when another row takesover
-   */
   useCustomEventListener(Events.RowStandingMoveDownEvent, (rowId) => {
     if(rowId !== id) return;
     runDownAnimation();
@@ -61,16 +51,16 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
   /**
    * Move row up amount of passed rows
    */
+  const runUpAnimation = useAnimation({
+    setter: setOffsetY,
+    frames: [0, 1],
+    values: [rowHeight * countAhead, 0],
+  });
   useCustomEventListener(Events.RowStandingMoveUpEvent, (data: RowStandingMoveUpEventData) => {
       if(data.rowId !== id) return;
       setCountAhead(data.count);
       runUpAnimation();
   });
-
-  const plusButtonHandler = () => {
-    addPointsToPlayer({id, points: 5});
-    runMoveRowsAnimation(id);
-  }
 
   return (
     <RowContainer 
@@ -80,15 +70,10 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
       <EdgePlatform displayNumber={place + "."} placement='left' />
       <MainPlatform>
         <span>Class: {classNumber}, CharacterId: {characterId}</span>
-        <div>
-          <button
-            disabled={isAnimating}
-            style={{ marginLeft: '0.25rem' }} 
-            onClick={plusButtonHandler}
-          >+</button>
-        </div>
       </MainPlatform>
-      <EdgePlatform displayNumber={points} placement='right' />
+      <AddPointsProvider playerId={id}>
+        <EdgePlatform displayNumber={points} placement='right' />
+      </AddPointsProvider>
     </RowContainer>
   );
 }
