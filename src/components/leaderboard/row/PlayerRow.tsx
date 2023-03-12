@@ -5,13 +5,14 @@ import { useCustomEventListener } from 'react-custom-events';
 import { useState } from "react";
 import { isAnimatingAtom } from "../../../state/animations/AnimationState";
 import { addPointsToPlayerAction } from "../../../state/leaderboard/actions/addPointsToPlayerAction";
-import { moveRowsAnimationDuration, useMoveRowsAnimation } from "../../../state/animations/actions/moveRowsAnimation";
+import { useMoveRowsAnimation } from "../../../state/animations/actions/moveRowsAnimation";
 import styled from 'styled-components'
+import useAnimation from "../../../animations/animationsHook";
 
 
 const rowHeight = 70;
 
-const RowContainer = styled.div<{ offsetY: number, transition: number, zIndex: number }>`
+const RowContainer = styled.div<{ offsetY: number, zIndex: number }>`
   display: flex;
   justify-content: space-between;
   padding: 1rem;
@@ -20,7 +21,6 @@ const RowContainer = styled.div<{ offsetY: number, transition: number, zIndex: n
   border-radius: 0.25rem;
   box-shadow: 2px 2px 5px rgba(0,0,0,.125);
   transform: translateY(${({ offsetY }) => offsetY}px);
-  transition: ${({ transition }) => transition}ms;
   z-index: ${({ zIndex }) => zIndex};
   position: relative;
 `;
@@ -33,8 +33,21 @@ type Props = {
 const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
 
   const { id, classNumber, points, characterId } = data;
+
   const [offsetY, setOffsetY] = useState(0);
-  const [transition, setTransition] = useState(0);
+  const [countAhead, setCountAhead] = useState(0);
+
+  const runDownAnimation = useAnimation({
+    setter: setOffsetY,
+    frames: [0, 1],
+    values: [-rowHeight, 0],
+  });
+
+  const runUpAnimation = useAnimation({
+    setter: setOffsetY,
+    frames: [0, 1],
+    values: [rowHeight * countAhead, 0],
+  });
 
   const isAnimating = useAtomValue(isAnimatingAtom);
   const addPointsToPlayer = useSetAtom(addPointsToPlayerAction);
@@ -45,8 +58,7 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
    */
   useCustomEventListener(Events.RowStandingMoveDownEvent, (rowId) => {
     if(rowId !== id) return;
-    setOffsetY(-rowHeight);
-    resetAnimationTimer();
+    runDownAnimation();
   });
 
   /**
@@ -54,19 +66,9 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
    */
   useCustomEventListener(Events.RowStandingMoveUpEvent, (data: RowStandingMoveUpEventData) => {
       if(data.rowId !== id) return;
-      setOffsetY(data.count * rowHeight);
-      resetAnimationTimer();
+      setCountAhead(data.count);
+      runUpAnimation();
   });
-
-  const resetAnimationTimer = () => {
-    setTimeout(function() {
-      setTransition(moveRowsAnimationDuration);
-      setOffsetY(0);
-    }, 5);
-    setTimeout(() => {
-      setTransition(0);
-    }, moveRowsAnimationDuration - 5);
-  }
 
   const plusButtonHandler = () => {
     addPointsToPlayer({id, points: 5});
@@ -74,7 +76,7 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
   }
 
   return (
-    <RowContainer offsetY={offsetY} transition={transition} zIndex={100-place}>
+    <RowContainer offsetY={offsetY} zIndex={100-place}>
       <span><i>{place}.</i> Class: {classNumber}, CharacterId: {characterId}</span>
       <div>
         <strong>{points}</strong>

@@ -19,7 +19,7 @@ const LeaderBoardApplication: React.FC = () => {
 
   return (
     <LeaderBoardContainer>
-        {leaderboardState.map((p: PlayerData, i) => <PlayerRow key={p.id} data={p} place={i+1} />)}
+      {leaderboardState.map((p: PlayerData, i) => <PlayerRow key={p.id} data={p} place={i+1} />)}
     </LeaderBoardContainer>
   )
 
