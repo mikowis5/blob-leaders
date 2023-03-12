@@ -1,3 +1,9 @@
+import styled from 'styled-components'
+
+const LeaderBoardList = styled.div`
+  width: 80%;
+`;
+
 type Props = {
   children: string | JSX.Element | JSX.Element[]
 }
@@ -5,7 +11,9 @@ type Props = {
 const LeaderBoardContainer: React.FC<Props> = ({children} : Props) => {
 
   return (
-    <div className="leader-board-container">{children}</div>
+    <LeaderBoardList>
+      {children}
+    </LeaderBoardList>
   )
 
 }

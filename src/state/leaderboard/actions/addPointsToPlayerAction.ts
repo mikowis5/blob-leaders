@@ -1,8 +1,6 @@
+import { leaderboardAtom } from "../LeaderboardState";
 import { atom } from 'jotai';
-import PlayerData from '../components/leaderboard/row/PlayerData.type';
-
-
-export const leaderboardAtom = atom<PlayerData[]>([]);
+import PlayerData from "../../../components/leaderboard/row/PlayerData.type";
 
 type AddPointsArgs = {
   id: number,
@@ -17,11 +15,4 @@ export const addPointsToPlayerAction = atom(null, (get, set, data: AddPointsArgs
       return player;
     }
   ));
-});
-
-export const sortLeaderboardAction = atom(null, (get, set) => {
-  set(
-    leaderboardAtom,
-    get(leaderboardAtom).sort((playerA, playerB) => playerB.points - playerA.points)
-  );
 });

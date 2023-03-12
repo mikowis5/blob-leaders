@@ -1,10 +1,18 @@
 import LeaderBoardApplication from './components/leaderboard/LeaderBoardApplication';
+import styled from 'styled-components'
+
+const AppScreen = styled.div`
+  background: #f2edff;
+  width: 100vh;
+  height: 100vh;
+  overflow: hidden;
+`;
 
 const App: React.FC = () => {
   return (
-    <div className="app-screen">  
+    <AppScreen>  
       <LeaderBoardApplication />
-    </div>
+    </AppScreen>
   );
 }
 
