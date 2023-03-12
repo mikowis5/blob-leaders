@@ -8,20 +8,16 @@ import { addPointsToPlayerAction } from "../../../state/leaderboard/actions/addP
 import { useMoveRowsAnimation } from "../../../state/animations/actions/moveRowsAnimation";
 import styled from 'styled-components'
 import useAnimation from "../../../animations/animationsHook";
+import EdgePlatform from "./EdgePlatform";
+import MainPlatform from "./MainPlatform";
+import { selectRowHeight } from "../../../state/ui/selectors/selectRowHeight";
 
 
-const rowHeight = 70;
-
-const RowContainer = styled.div<{ offsetY: number, zIndex: number }>`
+const RowContainer = styled.div<{ margin: number }>`
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
-  margin: 1rem;
-  background-color: white;
+  margin: ${({ margin }) => margin}px;
   border-radius: 0.25rem;
-  box-shadow: 2px 2px 5px rgba(0,0,0,.125);
-  transform: translateY(${({ offsetY }) => offsetY}px);
-  z-index: ${({ zIndex }) => zIndex};
   position: relative;
 `;
 
@@ -29,13 +25,14 @@ type Props = {
   data: PlayerData,
   place: number
 }
-
 const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
 
   const { id, classNumber, points, characterId } = data;
 
   const [offsetY, setOffsetY] = useState(0);
   const [countAhead, setCountAhead] = useState(0);
+  const rowMargin = 30;
+  const rowHeight = useAtomValue(selectRowHeight) + rowMargin;
 
   const runDownAnimation = useAnimation({
     setter: setOffsetY,
@@ -76,16 +73,22 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
   }
 
   return (
-    <RowContainer offsetY={offsetY} zIndex={100-place}>
-      <span><i>{place}.</i> Class: {classNumber}, CharacterId: {characterId}</span>
-      <div>
-        <strong>{points}</strong>
-        <button 
-          disabled={isAnimating}
-          style={{ marginLeft: '0.25rem' }} 
-          onClick={plusButtonHandler}
-        >+</button>
-      </div>
+    <RowContainer 
+      margin={rowMargin}
+      style={{ zIndex: 100-place, transform: `translateY(${offsetY}px)`
+    }}>
+      <EdgePlatform displayNumber={place + "."} placement='left' />
+      <MainPlatform>
+        <span>Class: {classNumber}, CharacterId: {characterId}</span>
+        <div>
+          <button
+            disabled={isAnimating}
+            style={{ marginLeft: '0.25rem' }} 
+            onClick={plusButtonHandler}
+          >+</button>
+        </div>
+      </MainPlatform>
+      <EdgePlatform displayNumber={points} placement='right' />
     </RowContainer>
   );
 }
