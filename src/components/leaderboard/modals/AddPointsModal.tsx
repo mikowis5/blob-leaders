@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { useCustomEventListener } from 'react-custom-events'
-import Events, { OpenAddPointsEventData } from '../../../events/Events';
+import { emitCustomEvent, useCustomEventListener } from 'react-custom-events'
+import Events, { OpenAddPointsEventData, PointsAddedEventData } from '../../../events/Events';
 import ButtonCircle from '../../ui/ButtonCircle';
 import { FaCheck, FaTimes } from 'react-icons/fa';
 import { useAtomValue, useSetAtom } from 'jotai';
@@ -9,6 +9,7 @@ import { useMoveRowsAnimation } from '../../../state/animations/actions/moveRows
 import { addPointsToPlayerAction } from '../../../state/leaderboard/actions/addPointsToPlayerAction';
 import { isAnimatingAtom } from '../../../state/animations/AnimationState';
 import { sortLeaderboardAction } from '../../../state/leaderboard/actions/sortLeaderboardAction';
+import { AddedPointsAnimationDuration } from '../../animations/AddedPointsAnimation';
 
 
 const ModalContainer = styled.div`
@@ -75,8 +76,16 @@ const AddPointsModal = () => {
 
   const submitPoints = () => {
     if(inputPoints > 0) {
-      addPointsToPlayer({id: playerId, points: parseInt(inputPoints)});
-      runMoveRowsAnimation(playerId);
+
+      const points = parseInt(inputPoints);
+      const eventData: PointsAddedEventData = { playerId, points, positionX: posX, positionY: posY };
+      emitCustomEvent(Events.PointsAddedEvent, eventData);
+
+      setTimeout(() => {
+        addPointsToPlayer({id: playerId, points});
+        runMoveRowsAnimation(playerId);
+      }, AddedPointsAnimationDuration - 200)
+      
     } else if (inputPoints < 0) {
       addPointsToPlayer({id: playerId, points: parseInt(inputPoints)});
       sortLeaderboard();

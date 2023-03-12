@@ -7,6 +7,7 @@ import { leaderboardAtom } from "../../state/leaderboard/LeaderboardState";
 import _mockupData from './../../data/mockupPlayerData.json';
 import styled from 'styled-components';
 import AddPointsModal from "./modals/AddPointsModal";
+import AddedPointsAnimation from "../animations/AddedPointsAnimation";
 
 
 const entryPlayerData = _mockupData.players as PlayerData[];
@@ -28,6 +29,7 @@ const LeaderBoardApplication: React.FC = () => {
 
   return (
     <ApplicationContainer>
+      <AddedPointsAnimation/>
       <AddPointsModal/>
       <LeaderBoardContainer>
         {leaderboardState.map((p: PlayerData, i) => <PlayerRow key={p.id} data={p} place={i+1} />)}
