@@ -1,0 +1,260 @@
+.blob-body {
+
+  width: 95px;
+  height: 95px;
+  transform-origin: 50% 80%;
+
+  animation: blob-breathe;
+  animation-duration: 2s;
+
+}
+
+.eye-left {
+  left: 34%;
+  top: 23%;
+}
+
+.eye-right {
+  right: 12%;
+  top: 21%;
+}
+
+.eye-container {
+  position: absolute;
+  z-index: 1;
+
+  animation: eye-float;
+  animation-duration: 2s;
+}
+
+.eye {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.eye-right .eye {
+  transform: scale(0.75);
+}
+
+.eye-right .eye-lid {
+  transform: rotate(2deg);
+}
+
+.eye-left .eye-lid {
+  transform: rotate(-5deg);
+}
+
+.eye-lid {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+}
+
+.eye-lid-top {
+  animation: eye-lid-top-blink;
+  animation-duration: 5s;
+  left: -10%;
+}
+
+.eye-lid-bottom {
+  animation: eye-lid-bottom-blink;
+  animation-duration: 5s;
+  left: -10%;
+}
+
+.eye-pupil {
+  position: absolute;
+  width: 4px;
+  height: 7px;
+  border-radius: 100%;
+  left: 55%;
+  top: 13%;
+}
+
+.pupil-shrinkle {
+  position: absolute;
+  background: white;
+  width: 2px;
+  height: 2px;
+  border-radius: 100%;
+  top: 2px;
+  left: 75%;
+  opacity: 0.85;
+}
+
+.eye-brow {
+  position: absolute;
+  width: 22px;
+  height: 5px;
+
+  background: black;
+  z-index: 2;
+
+  /* animation: brew-float;
+  animation-duration: 2s; */
+}
+
+.eye-left .eye-brow {
+  transform: rotate(-8deg);
+  top: 0px;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.eye-right .eye-brow {
+  transform: rotate(6deg);
+  top: 2px;
+  left: 4px;
+  width: 18px;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.blob-mouth {
+  width: 22px;
+  height: 5px;
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  border-bottom-left-radius: 90%;
+  border-bottom-right-radius: 50%;
+  transform: rotate(5deg);
+}
+
+.blob-container {
+  position: relative;
+}
+
+.blob-hand {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+
+  border-top-left-radius: 35%;
+  border-top-right-radius: 35%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.blob-hand.right-hand {
+  left: 22%;
+  top: 52%;
+
+  animation: right-hand-animation;
+  animation-duration: 2s;
+}
+
+.blob-hand.left-hand {
+  z-index: -1;
+  right: 7%;
+  top: 50%;
+
+  animation: left-hand-animation;
+  animation-duration: 2s;
+}
+
+.blob-shadow {
+  position: absolute;
+  z-index: -1;
+  width: 80%;
+  left: 7%;
+  height: 20px;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, .1);
+  bottom: 5%;
+}
+
+.blob svg {
+  stroke: black;
+  stroke-width: 4px;
+  stroke-linejoin: round;
+  transform: rotate(50deg);
+}
+
+@keyframes blob-breathe {
+  0% {
+    transform: scaleY(100%);
+  }
+
+  100% {
+    transform: scaleY(97%);
+  }
+}
+
+@keyframes eye-lid-top-blink {
+  0% {
+    bottom: 70%;
+  }
+
+  90% {
+    bottom: 70%;
+  }
+
+  100% {
+    bottom: 25%;
+  }
+}
+
+@keyframes eye-lid-bottom-blink {
+  0% {
+    bottom: -175%;
+  }
+
+  90% {
+    bottom: -175%;
+  }
+
+  100% {
+    bottom: -105%;
+  }
+}
+
+@keyframes eye-float {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-1.5px);
+  }
+}
+
+@keyframes brew-float {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(0.5px);
+  }
+}
+
+@keyframes right-hand-animation {
+  0% {
+    transform: translateY(0) rotate(-10deg);
+  }
+
+  100% {
+    transform: translateY(1px) rotate(10deg);
+  }
+}
+
+@keyframes left-hand-animation {
+  0% {
+    transform: translateY(0) rotate(-35deg);
+  }
+
+  100% {
+    transform: translateY(1px) rotate(-15deg);
+  }
+}
+
+.animated {
+  animation-iteration-count: infinite !important;
+  animation-direction: alternate !important;
+}

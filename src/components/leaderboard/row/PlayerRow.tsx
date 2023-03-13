@@ -13,6 +13,8 @@ import MainPlatform from "./MainPlatform";
 import { selectRowHeight } from "../../../state/ui/selectors/selectRowHeight";
 import AddPointsProvider from "./AddPointsProvider";
 import ClassSign from "./ClassSign";
+import PlayerCharacter from "../../player/PlayerCharacter";
+import PlayerFactory from "../../player/PlayerFactory";
 
 
 const RowContainer = styled.div<{ margin: number }>`
@@ -70,7 +72,9 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
     }}>
       <EdgePlatform displayNumber={place + "."} placement='left' />
       <MainPlatform>
-        <span>CharacterId: {characterId}</span>
+        <div style={{ marginLeft: '15px', transform: 'translateY(-15px)' }}>
+          <PlayerFactory characterId={characterId} />
+        </div>
         <ClassSign classNumber={classNumber} />
       </MainPlatform>
       <AddPointsProvider playerId={id}>
