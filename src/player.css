@@ -1,12 +1,7 @@
 .blob-body {
-
   width: 95px;
   height: 95px;
   transform-origin: 50% 80%;
-
-  animation: blob-breathe;
-  animation-duration: 2s;
-
 }
 
 .eye-left {
@@ -22,9 +17,6 @@
 .eye-container {
   position: absolute;
   z-index: 1;
-
-  animation: eye-float;
-  animation-duration: 2s;
 }
 
 .eye {
@@ -56,14 +48,10 @@
 }
 
 .eye-lid-top {
-  animation: eye-lid-top-blink;
-  animation-duration: 5s;
   left: -10%;
 }
 
 .eye-lid-bottom {
-  animation: eye-lid-bottom-blink;
-  animation-duration: 5s;
   left: -10%;
 }
 
@@ -94,9 +82,6 @@
 
   background: black;
   z-index: 2;
-
-  /* animation: brew-float;
-  animation-duration: 2s; */
 }
 
 .eye-left .eye-brow {
@@ -141,21 +126,15 @@
   border-bottom-right-radius: 50%;
 }
 
-.blob-hand.right-hand {
+.blob-hand.left-hand {
   left: 22%;
   top: 52%;
-
-  animation: right-hand-animation;
-  animation-duration: 2s;
 }
 
-.blob-hand.left-hand {
+.blob-hand.right-hand {
   z-index: -1;
   right: 7%;
   top: 50%;
-
-  animation: left-hand-animation;
-  animation-duration: 2s;
 }
 
 .blob-shadow {
@@ -165,7 +144,7 @@
   left: 7%;
   height: 20px;
   border-radius: 100%;
-  background-color: rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, .2);
   bottom: 5%;
 }
 
@@ -174,87 +153,4 @@
   stroke-width: 4px;
   stroke-linejoin: round;
   transform: rotate(50deg);
-}
-
-@keyframes blob-breathe {
-  0% {
-    transform: scaleY(100%);
-  }
-
-  100% {
-    transform: scaleY(97%);
-  }
-}
-
-@keyframes eye-lid-top-blink {
-  0% {
-    bottom: 70%;
-  }
-
-  90% {
-    bottom: 70%;
-  }
-
-  100% {
-    bottom: 25%;
-  }
-}
-
-@keyframes eye-lid-bottom-blink {
-  0% {
-    bottom: -175%;
-  }
-
-  90% {
-    bottom: -175%;
-  }
-
-  100% {
-    bottom: -105%;
-  }
-}
-
-@keyframes eye-float {
-  0% {
-    transform: translateY(0);
-  }
-
-  100% {
-    transform: translateY(-1.5px);
-  }
-}
-
-@keyframes brew-float {
-  0% {
-    transform: translateY(0);
-  }
-
-  100% {
-    transform: translateY(0.5px);
-  }
-}
-
-@keyframes right-hand-animation {
-  0% {
-    transform: translateY(0) rotate(-10deg);
-  }
-
-  100% {
-    transform: translateY(1px) rotate(10deg);
-  }
-}
-
-@keyframes left-hand-animation {
-  0% {
-    transform: translateY(0) rotate(-35deg);
-  }
-
-  100% {
-    transform: translateY(1px) rotate(-15deg);
-  }
-}
-
-.animated {
-  animation-iteration-count: infinite !important;
-  animation-direction: alternate !important;
 }

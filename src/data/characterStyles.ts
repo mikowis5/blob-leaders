@@ -1,7 +1,6 @@
 import PlayerStyle from "../components/player/PlayerStyle.type";
 
-export default (characterId: number): PlayerStyle => {
-
+export const getCharacterStyle = (characterId: number): PlayerStyle => {
   switch(characterId) {
 
     case 1:
@@ -41,5 +40,4 @@ export default (characterId: number): PlayerStyle => {
       }
   
   }
-
-}
+};

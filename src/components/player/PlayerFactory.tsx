@@ -1,16 +1,17 @@
 import { useMemo } from "react";
-import characterStyles from "../../data/characterStyles";
+import { getCharacterStyle } from "../../data/characterStyles";
 import PlayerCharacter from "./PlayerCharacter";
+import breatheAnimation from "./animations/breatheAnimation";
 
 type Props = {
   characterId: number
 }
 const PlayerFactory = ({ characterId }: Props) => {
 
-  const playerStyle = useMemo(() => characterStyles(characterId), [])
+  const playerStyle = useMemo(() => getCharacterStyle(characterId), [characterId])
 
   return (
-    <PlayerCharacter characterStyle={playerStyle} />
+    <PlayerCharacter animation={breatheAnimation} characterStyle={playerStyle} />
   );
 
 }

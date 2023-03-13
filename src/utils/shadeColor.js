@@ -16,9 +16,9 @@ export default function shadeColor(color, percent) {
   G = Math.round(G)
   B = Math.round(B)
 
-  var RR = ((R.toString(16).length==1)?"0"+R.toString(16):R.toString(16));
-  var GG = ((G.toString(16).length==1)?"0"+G.toString(16):G.toString(16));
-  var BB = ((B.toString(16).length==1)?"0"+B.toString(16):B.toString(16));
+  var RR = ((R.toString(16).length===1)?"0"+R.toString(16):R.toString(16));
+  var GG = ((G.toString(16).length===1)?"0"+G.toString(16):G.toString(16));
+  var BB = ((B.toString(16).length===1)?"0"+B.toString(16):B.toString(16));
 
   return "#"+RR+GG+BB;
 
