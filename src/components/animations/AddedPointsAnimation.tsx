@@ -133,7 +133,7 @@ const AddedPointsAnimation = () => {
               </div>
             </>
           )}
-          <LinesBg style={{ transform: `scale(${ 1.225 - (textOffsets/1000) })` }} />
+          <LinesBg style={{ transform: `scale(${ 1.5 - (textOffsets/500) })` }} />
         </Container>
       }
     </>
