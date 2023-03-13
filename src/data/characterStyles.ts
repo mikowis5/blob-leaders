@@ -1,4 +1,5 @@
 import PlayerStyle from "../components/player/PlayerStyle.type";
+import phraohHat from "../assets/img/characters/phraoh_hat.png";
 
 export const getCharacterStyle = (characterId: number): PlayerStyle => {
   switch(characterId) {
@@ -11,8 +12,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
 
     case 2:
       return {
-        bodyColor: '#ffbb55',
-        eyeColor: '#0040ff'
+        bodyColor: '#c60df5',
+        eyeColor: '#4e56f8',
+        hat: phraohHat
       }
 
     case 3:

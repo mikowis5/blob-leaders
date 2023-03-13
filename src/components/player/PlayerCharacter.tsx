@@ -115,6 +115,16 @@ const BlobContainer = styled.div<{ styleSet: PlayerStyle, animation?: PlayerAnim
       drop-shadow(3px 3px 0px ${({ styleSet }) => shadeColor(styleSet.bodyColor, -50)})
       drop-shadow(-2px 3px 0px ${({ styleSet }) => shadeColor(styleSet.bodyColor, -50)})
   }
+  .blob-hat{
+    display: ${({ styleSet }) => styleSet.hat ? 'inline' : 'none'};
+    background: url('${({ styleSet }) => styleSet.hat}');
+    background-size: cover;
+
+    animation-name: ${({ animation }) => animation?.hat?.keyframes ?? 'none'};
+    animation-duration: ${({ animation }) => animation?.hat?.duration ?? 0}s;
+    animation-iteration-count: ${({ animation }) => animation?.hat?.iterationCount ?? 'infinite'};
+    animation-direction: ${({ animation }) => animation?.hat?.direction ?? 'alternate'};
+  }
 `;
 type Props = {
   characterStyle: PlayerStyle,
@@ -147,6 +157,7 @@ const PlayerCharacter = ({ characterStyle, animation } : Props) => {
         <div className="blob-body">
           <BlobSvg/>
         </div>
+        <div className="blob-hat"/>
         <div className="blob-mouth"/>
         <div className="blob-hand left-hand"/>
         <div className="blob-hand right-hand"/>

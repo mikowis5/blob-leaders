@@ -11,6 +11,15 @@ const body: AnimationProps = {
   duration: 4
 };
 
+const hat: AnimationProps = {
+  keyframes: keyframes`
+    0% { transform: translateY(0); }
+    50% { transform: translateY(0); }
+    100% { transform: translateY(2px); }
+  `,
+  duration: 4
+};
+
 const leftHand: AnimationProps = {
   keyframes: keyframes`
     0% { transform: translateX(0) translateY(0) rotate(-15deg); }
@@ -61,6 +70,7 @@ const mouth: AnimationProps = {
 const animation: PlayerAnimationSet = {
   animationDuration: 8,
   body,
+  hat,
   mouth,
   leftHand,
   rightHand,

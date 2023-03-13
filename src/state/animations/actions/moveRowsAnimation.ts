@@ -1,4 +1,4 @@
-import { isAnimatingAtom } from "../AnimationState";
+import { isAnimatingAtom, isAnimatingMoveRowsAtom } from "../AnimationState";
 import { atom, useSetAtom } from 'jotai';
 import { sortLeaderboardAction } from "../../leaderboard/actions/sortLeaderboardAction";
 import { selectRowsToAnimateToBottom } from "../../leaderboard/selectors/selectRowsToAnimateToBottom";
@@ -20,6 +20,7 @@ export const useMoveRowsAnimation = () => {
   const moveRowsAnimationAction = atom(null, async (get, set, rowId: number) => {
 
     set(isAnimatingAtom, true);
+    set(isAnimatingMoveRowsAtom, true);
     const rows = get(selectRowsToAnimateToBottom)(rowId);
 
     rows.forEach((rowId) => {
@@ -35,6 +36,7 @@ export const useMoveRowsAnimation = () => {
     sortLeaderboard();
     setTimeout(() => {
       set(isAnimatingAtom, false);
+      set(isAnimatingMoveRowsAtom, false);
     }, moveRowsAnimationDuration);
   
   });

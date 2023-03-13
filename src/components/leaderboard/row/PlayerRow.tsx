@@ -1,11 +1,9 @@
 import PlayerData from "./PlayerData.type";
 import Events, { RowStandingMoveUpEventData } from "../../../events/Events";
-import { useAtomValue, useSetAtom } from 'jotai';
+import { useAtomValue } from 'jotai';
 import { useCustomEventListener } from 'react-custom-events';
 import { useState } from "react";
-import { isAnimatingAtom } from "../../../state/animations/AnimationState";
-import { addPointsToPlayerAction } from "../../../state/leaderboard/actions/addPointsToPlayerAction";
-import { useMoveRowsAnimation } from "../../../state/animations/actions/moveRowsAnimation";
+import { isAnimatingMoveRowsAtom } from "../../../state/animations/AnimationState";
 import styled from 'styled-components'
 import useAnimation from "../../../animations/animationsHook";
 import EdgePlatform from "./EdgePlatform";
@@ -13,7 +11,6 @@ import MainPlatform from "./MainPlatform";
 import { selectRowHeight } from "../../../state/ui/selectors/selectRowHeight";
 import AddPointsProvider from "./AddPointsProvider";
 import ClassSign from "./ClassSign";
-import PlayerCharacter from "../../player/PlayerCharacter";
 import PlayerFactory from "../../player/PlayerFactory";
 
 
@@ -37,6 +34,7 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
   const [countAhead, setCountAhead] = useState(0);
   const rowMargin = 30;
   const rowHeight = useAtomValue(selectRowHeight) + rowMargin;
+  const isAnimatingMoveRows = useAtomValue(isAnimatingMoveRowsAtom);
 
   /**
    * Move row down when another row takesover
@@ -68,7 +66,7 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
   return (
     <RowContainer 
       margin={rowMargin}
-      style={{ zIndex: 100-place, transform: `translateY(${offsetY}px)`
+      style={{ zIndex: 100 + ( (isAnimatingMoveRows ? -1 : 1)*place), transform: `translateY(${offsetY}px)`
     }}>
       <EdgePlatform displayNumber={place + "."} placement='left' />
       <MainPlatform>

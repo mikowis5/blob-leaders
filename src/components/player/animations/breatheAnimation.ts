@@ -9,6 +9,14 @@ const body: AnimationProps = {
   duration: 2
 };
 
+const hat: AnimationProps = {
+  keyframes: keyframes`
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-2px); }
+  `,
+  duration: 2
+};
+
 const leftHand: AnimationProps = {
   keyframes: keyframes`
     0% { transform: translateY(0) rotate(-10deg); }
@@ -53,6 +61,7 @@ const eyeLidBottom: AnimationProps = {
 
 const animation: PlayerAnimationSet = {
   body,
+  hat,
   leftHand,
   rightHand,
   leftEye: eyes,

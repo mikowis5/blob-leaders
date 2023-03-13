@@ -20,7 +20,7 @@ const PlayerFactory = ({ characterId }: Props) => {
 
   const decideNewAnimation = () => {
     const rand = Math.random();
-    const newAnimation = rand < 0.5 ? breatheAnimation
+    const newAnimation = rand < 0.75 ? breatheAnimation
       : animations.sort(a => 0.5 - Math.random())[0];
     setCurrentAnimation(newAnimation);
     setTimeout(decideNewAnimation, (newAnimation?.animationDuration || 4) * 1000);

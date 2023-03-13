@@ -23,5 +23,6 @@ export type PlayerAnimationSet = {
   leftEyeLidTop?: AnimationProps,
   leftEyeLidBottom?: AnimationProps,
   leftEyePupil?: AnimationProps,
-  rightEyePupil?: AnimationProps
+  rightEyePupil?: AnimationProps,
+  hat?: AnimationProps
 }
