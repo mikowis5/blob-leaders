@@ -7,6 +7,11 @@ import {PlayerAnimationSet } from './animations/PlayerAnimation.type';
 const BlobContainer = styled.div<{ styleSet: PlayerStyle, animation?: PlayerAnimationSet }>`
   position: relative;
 
+  animation-name: ${({ animation }) => animation?.container?.keyframes ?? 'none'};
+  animation-duration: ${({ animation }) => animation?.container?.duration ?? 0}s;
+  animation-iteration-count: ${({ animation }) => animation?.container?.iterationCount ?? 'infinite'};
+  animation-direction: ${({ animation }) => animation?.container?.direction ?? 'alternate'};
+
   .blob-body {
     animation-name: ${({ animation }) => animation?.body?.keyframes ?? 'none'};
     animation-duration: ${({ animation }) => animation?.body?.duration ?? 0}s;
@@ -24,6 +29,18 @@ const BlobContainer = styled.div<{ styleSet: PlayerStyle, animation?: PlayerAnim
     animation-duration: ${({ animation }) => animation?.leftEye?.duration ?? 0}s;
     animation-iteration-count: ${({ animation }) => animation?.leftEye?.iterationCount ?? 'infinite'};
     animation-direction: ${({ animation }) => animation?.leftEye?.direction ?? 'alternate'};
+  }
+  .eye-container.eye-right .eye-pupil {
+    animation-name: ${({ animation }) => animation?.rightEyePupil?.keyframes ?? 'none'};
+    animation-duration: ${({ animation }) => animation?.rightEyePupil?.duration ?? 0}s;
+    animation-iteration-count: ${({ animation }) => animation?.rightEyePupil?.iterationCount ?? 'infinite'};
+    animation-direction: ${({ animation }) => animation?.rightEyePupil?.direction ?? 'alternate'};
+  }
+  .eye-container.eye-left .eye-pupil {
+    animation-name: ${({ animation }) => animation?.leftEyePupil?.keyframes ?? 'none'};
+    animation-duration: ${({ animation }) => animation?.leftEyePupil?.duration ?? 0}s;
+    animation-iteration-count: ${({ animation }) => animation?.leftEyePupil?.iterationCount ?? 'infinite'};
+    animation-direction: ${({ animation }) => animation?.leftEyePupil?.direction ?? 'alternate'};
   }
   .eye-container.eye-left .eye-lid-top {
     animation-name: ${({ animation }) => animation?.leftEyeLidTop?.keyframes ?? 'none'};
@@ -131,9 +148,8 @@ const PlayerCharacter = ({ characterStyle, animation } : Props) => {
           <BlobSvg/>
         </div>
         <div className="blob-mouth"/>
-          <div className="blob-hand left-hand"/>
-          <div className="blob-hand right-hand"/>
-          <div className="blob-shadow"/>
+        <div className="blob-hand left-hand"/>
+        <div className="blob-hand right-hand"/>
       </div>
     </BlobContainer>
   );

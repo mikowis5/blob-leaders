@@ -74,6 +74,7 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
       <MainPlatform>
         <div style={{ marginLeft: '15px', transform: 'translateY(-15px)' }}>
           <PlayerFactory characterId={characterId} />
+          <div className="blob-shadow"/>
         </div>
         <ClassSign classNumber={classNumber} />
       </MainPlatform>

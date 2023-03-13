@@ -9,6 +9,7 @@ export type AnimationProps = {
 
 export type PlayerAnimationSet = {
   animationDuration?: number,
+  container?: AnimationProps,
   body?: AnimationProps,
   leftHand?: AnimationProps,
   rightHand?: AnimationProps,
@@ -20,5 +21,7 @@ export type PlayerAnimationSet = {
   rightEyeLidTop?: AnimationProps,
   rightEyeLidBottom?: AnimationProps,
   leftEyeLidTop?: AnimationProps,
-  leftEyeLidBottom?: AnimationProps
+  leftEyeLidBottom?: AnimationProps,
+  leftEyePupil?: AnimationProps,
+  rightEyePupil?: AnimationProps
 }

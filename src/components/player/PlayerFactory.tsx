@@ -3,9 +3,10 @@ import { getCharacterStyle } from "../../data/characterStyles";
 import PlayerCharacter from "./PlayerCharacter";
 import breatheAnimation from "./animations/breatheAnimation";
 import yawnAnimation from "./animations/yawnAnimation";
+import wavingAnimation from "./animations/wavingAnimation";
 
 const animations = [
-  breatheAnimation, yawnAnimation
+  breatheAnimation, yawnAnimation, wavingAnimation
 ];
 
 type Props = {
@@ -19,7 +20,7 @@ const PlayerFactory = ({ characterId }: Props) => {
 
   const decideNewAnimation = () => {
     const rand = Math.random();
-    const newAnimation = rand > 0.75 ? breatheAnimation
+    const newAnimation = rand < 0.5 ? breatheAnimation
       : animations.sort(a => 0.5 - Math.random())[0];
     setCurrentAnimation(newAnimation);
     setTimeout(decideNewAnimation, (newAnimation?.animationDuration || 4) * 1000);
