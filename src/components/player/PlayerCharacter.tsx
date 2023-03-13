@@ -4,62 +4,68 @@ import PlayerStyle from './PlayerStyle.type';
 import shadeColor from '../../utils/shadeColor';
 import {PlayerAnimationSet } from './animations/PlayerAnimation.type';
 
-const BlobContainer = styled.div<{ styleSet: PlayerStyle, animation: PlayerAnimationSet }>`
+const BlobContainer = styled.div<{ styleSet: PlayerStyle, animation?: PlayerAnimationSet }>`
   position: relative;
 
   .blob-body {
-    animation-name: ${({ animation }) => animation.body?.keyframes ?? 'none'};
-    animation-duration: ${({ animation }) => animation.body?.duration ?? 0}s;
-    animation-iteration-count: ${({ animation }) => animation.body?.iterationCount ?? 'infinite'};
-    animation-direction: ${({ animation }) => animation.body?.direction ?? 'alternate'};
+    animation-name: ${({ animation }) => animation?.body?.keyframes ?? 'none'};
+    animation-duration: ${({ animation }) => animation?.body?.duration ?? 0}s;
+    animation-iteration-count: ${({ animation }) => animation?.body?.iterationCount ?? 'infinite'};
+    animation-direction: ${({ animation }) => animation?.body?.direction ?? 'alternate'};
   }
   .eye-container.eye-right {
-    animation-name: ${({ animation }) => animation.rightEye?.keyframes ?? 'none'};
-    animation-duration: ${({ animation }) => animation.rightEye?.duration ?? 0}s;
-    animation-iteration-count: ${({ animation }) => animation.rightEye?.iterationCount ?? 'infinite'};
-    animation-direction: ${({ animation }) => animation.rightEye?.direction ?? 'alternate'};
+    animation-name: ${({ animation }) => animation?.rightEye?.keyframes ?? 'none'};
+    animation-duration: ${({ animation }) => animation?.rightEye?.duration ?? 0}s;
+    animation-iteration-count: ${({ animation }) => animation?.rightEye?.iterationCount ?? 'infinite'};
+    animation-direction: ${({ animation }) => animation?.rightEye?.direction ?? 'alternate'};
   }
   .eye-container.eye-left {
-    animation-name: ${({ animation }) => animation.leftEye?.keyframes ?? 'none'};
-    animation-duration: ${({ animation }) => animation.leftEye?.duration ?? 0}s;
-    animation-iteration-count: ${({ animation }) => animation.leftEye?.iterationCount ?? 'infinite'};
-    animation-direction: ${({ animation }) => animation.leftEye?.direction ?? 'alternate'};
+    animation-name: ${({ animation }) => animation?.leftEye?.keyframes ?? 'none'};
+    animation-duration: ${({ animation }) => animation?.leftEye?.duration ?? 0}s;
+    animation-iteration-count: ${({ animation }) => animation?.leftEye?.iterationCount ?? 'infinite'};
+    animation-direction: ${({ animation }) => animation?.leftEye?.direction ?? 'alternate'};
   }
   .eye-container.eye-left .eye-lid-top {
-    animation-name: ${({ animation }) => animation.leftEyeLidTop?.keyframes ?? 'none'};
-    animation-duration: ${({ animation }) => animation.leftEyeLidTop?.duration ?? 0}s;
-    animation-iteration-count: ${({ animation }) => animation.leftEyeLidTop?.iterationCount ?? 'infinite'};
-    animation-direction: ${({ animation }) => animation.leftEyeLidTop?.direction ?? 'alternate'};
+    animation-name: ${({ animation }) => animation?.leftEyeLidTop?.keyframes ?? 'none'};
+    animation-duration: ${({ animation }) => animation?.leftEyeLidTop?.duration ?? 0}s;
+    animation-iteration-count: ${({ animation }) => animation?.leftEyeLidTop?.iterationCount ?? 'infinite'};
+    animation-direction: ${({ animation }) => animation?.leftEyeLidTop?.direction ?? 'alternate'};
   }
   .eye-container.eye-left .eye-lid-bottom {
-    animation-name: ${({ animation }) => animation.leftEyeLidBottom?.keyframes ?? 'none'};
-    animation-duration: ${({ animation }) => animation.leftEyeLidBottom?.duration ?? 0}s;
-    animation-iteration-count: ${({ animation }) => animation.leftEyeLidBottom?.iterationCount ?? 'infinite'};
-    animation-direction: ${({ animation }) => animation.leftEyeLidBottom?.direction ?? 'alternate'};
+    animation-name: ${({ animation }) => animation?.leftEyeLidBottom?.keyframes ?? 'none'};
+    animation-duration: ${({ animation }) => animation?.leftEyeLidBottom?.duration ?? 0}s;
+    animation-iteration-count: ${({ animation }) => animation?.leftEyeLidBottom?.iterationCount ?? 'infinite'};
+    animation-direction: ${({ animation }) => animation?.leftEyeLidBottom?.direction ?? 'alternate'};
   }
   .eye-container.eye-right .eye-lid-top {
-    animation-name: ${({ animation }) => animation.rightEyeLidTop?.keyframes ?? 'none'};
-    animation-duration: ${({ animation }) => animation.rightEyeLidTop?.duration ?? 0}s;
-    animation-iteration-count: ${({ animation }) => animation.rightEyeLidTop?.iterationCount ?? 'infinite'};
-    animation-direction: ${({ animation }) => animation.rightEyeLidTop?.direction ?? 'alternate'};
+    animation-name: ${({ animation }) => animation?.rightEyeLidTop?.keyframes ?? 'none'};
+    animation-duration: ${({ animation }) => animation?.rightEyeLidTop?.duration ?? 0}s;
+    animation-iteration-count: ${({ animation }) => animation?.rightEyeLidTop?.iterationCount ?? 'infinite'};
+    animation-direction: ${({ animation }) => animation?.rightEyeLidTop?.direction ?? 'alternate'};
   }
   .eye-container.eye-right .eye-lid-bottom {
-    animation-name: ${({ animation }) => animation.rightEyeLidBottom?.keyframes ?? 'none'};
-    animation-duration: ${({ animation }) => animation.rightEyeLidBottom?.duration ?? 0}s;
-    animation-iteration-count: ${({ animation }) => animation.rightEyeLidBottom?.iterationCount ?? 'infinite'};
-    animation-direction: ${({ animation }) => animation.rightEyeLidBottom?.direction ?? 'alternate'};
+    animation-name: ${({ animation }) => animation?.rightEyeLidBottom?.keyframes ?? 'none'};
+    animation-duration: ${({ animation }) => animation?.rightEyeLidBottom?.duration ?? 0}s;
+    animation-iteration-count: ${({ animation }) => animation?.rightEyeLidBottom?.iterationCount ?? 'infinite'};
+    animation-direction: ${({ animation }) => animation?.rightEyeLidBottom?.direction ?? 'alternate'};
+  }
+  .blob-mouth {
+    animation-name: ${({ animation }) => animation?.mouth?.keyframes ?? 'none'};
+    animation-duration: ${({ animation }) => animation?.mouth?.duration ?? 0}s;
+    animation-iteration-count: ${({ animation }) => animation?.mouth?.iterationCount ?? 'infinite'};
+    animation-direction: ${({ animation }) => animation?.mouth?.direction ?? 'alternate'};
   }
   .right-hand {
-    animation-name: ${({ animation }) => animation.rightHand?.keyframes ?? 'none'};
-    animation-duration: ${({ animation }) => animation.rightHand?.duration ?? 0}s;
-    animation-iteration-count: ${({ animation }) => animation.rightHand?.iterationCount ?? 'infinite'};
-    animation-direction: ${({ animation }) => animation.rightHand?.direction ?? 'alternate'};
+    animation-name: ${({ animation }) => animation?.rightHand?.keyframes ?? 'none'};
+    animation-duration: ${({ animation }) => animation?.rightHand?.duration ?? 0}s;
+    animation-iteration-count: ${({ animation }) => animation?.rightHand?.iterationCount ?? 'infinite'};
+    animation-direction: ${({ animation }) => animation?.rightHand?.direction ?? 'alternate'};
   }
   .left-hand {
-    animation-name: ${({ animation }) => animation.leftHand?.keyframes ?? 'none'};
-    animation-duration: ${({ animation }) => animation.leftHand?.duration ?? 0}s;
-    animation-iteration-count: ${({ animation }) => animation.leftHand?.iterationCount ?? 'infinite'};
-    animation-direction: ${({ animation }) => animation.leftHand?.direction ?? 'alternate'};
+    animation-name: ${({ animation }) => animation?.leftHand?.keyframes ?? 'none'};
+    animation-duration: ${({ animation }) => animation?.leftHand?.duration ?? 0}s;
+    animation-iteration-count: ${({ animation }) => animation?.leftHand?.iterationCount ?? 'infinite'};
+    animation-direction: ${({ animation }) => animation?.leftHand?.direction ?? 'alternate'};
   }
   .eye-pupil {
     background: ${({ styleSet }) => styleSet.eyeColor};
@@ -95,7 +101,7 @@ const BlobContainer = styled.div<{ styleSet: PlayerStyle, animation: PlayerAnima
 `;
 type Props = {
   characterStyle: PlayerStyle,
-  animation: PlayerAnimationSet
+  animation?: PlayerAnimationSet
 }
 const PlayerCharacter = ({ characterStyle, animation } : Props) => {
   return (

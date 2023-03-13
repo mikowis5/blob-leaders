@@ -12,7 +12,7 @@ const AppScreen = styled.div`
 
 const App: React.FC = () => {
   return (
-    <AppScreen>  
+    <AppScreen>
       <LeaderBoardApplication />
     </AppScreen>
   );
