@@ -1,6 +1,5 @@
 import { MouseEventHandler } from 'react';
 import styled from 'styled-components';
-import { FaTimes } from 'react-icons/fa';
 
 
 const colors = {
@@ -26,13 +25,14 @@ const colors = {
   }
 }
 
-const Button = styled.div<{ bg: string, border: string, shadow: string }>`
+const Button = styled.div<{ bg: string, border: string, shadow: string, size: number, opacity: number }>`
   cursor: pointer;
   background: rgb(${({bg}) => bg});
-  width: 30px;
-  height: 30px;
-  max-width: 30px;
-  max-height: 30px;
+  opacity: ${({opacity}) => opacity};
+  width: ${({size}) => size}px;
+  height: ${({size}) => size}px;
+  max-width: ${({size}) => size}px;
+  max-height: ${({size}) => size}px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -52,23 +52,33 @@ const Button = styled.div<{ bg: string, border: string, shadow: string }>`
 
 `;
 
+const SizeMap = {
+  "md": 30,
+  "lg": 35,
+  "xl": 40
+}
+
 type Props = {
   children?: string | JSX.Element | JSX.Element[],
   onClick?: MouseEventHandler<HTMLDivElement> | undefined,
-  color?: 'default' | 'blue'
+  color?: 'default' | 'blue' | 'green' | 'red',
+  size?: 'md' | 'lg' | 'xl',
+  opacity?: number
 }
-const ButtonCircle = ({ children, onClick = () => {}, color='default' }: Props) => {
+const ButtonCircle = ({ children, onClick = () => {}, color='default', size='md', opacity=1 }: Props) => {
 
   const bgColor = colors[color].bg.join(',');
   const shadowColor = colors[color].shadow.join(',');
   const borderColor = colors[color].border.join(',');
 
   return (
-    <Button 
+    <Button
+      size={SizeMap[size]}
       onClick={onClick} 
       bg={bgColor} 
       shadow={shadowColor} 
       border={borderColor}
+      opacity={opacity}
     >
       {children}
     </Button>

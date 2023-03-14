@@ -4,7 +4,8 @@ export type AnimationProps = {
   keyframes: Keyframes,
   duration: number;
   direction?: 'normal' | 'reverse' | 'alternate' | 'alternate-reverse',
-  iterationCount?: number | 'infinite' | 'revert'
+  iterationCount?: number | 'infinite' | 'revert',
+  fillMode?: 'none' | 'forwards' | 'backwards' | 'both'
 }
 
 export type PlayerAnimationSet = {

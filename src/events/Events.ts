@@ -1,22 +1,27 @@
 enum Events {
+  OpenAddPointsEvent = 'OpenAddPointsEvent',
+  PointsAddedEvent = 'PointsAddedEvent',
   RowStandingMoveDownEvent = 'RowStandingMoveDownEvent',
   RowStandingMoveUpEvent = 'RowStandingMoveUpEvent',
-  OpenAddPointsEvent = 'OpenAddPointsEvent',
-  PointsAddedEvent = 'PointsAddedEvent'
+  OpenAddPlayerEvent = 'OpenAddPlayerEvent'
 }
 
-export type RowStandingMoveUpEventData = {
+export interface EventData {
+
+}
+
+export interface RowStandingMoveUpEventData extends EventData {
   rowId: number,
   count: number
 }
 
-export type OpenAddPointsEventData = {
+export interface OpenAddPointsEventData extends EventData {
   playerId: number,
   positionX: number,
   positionY: number
 }
 
-export type PointsAddedEventData = {
+export interface PointsAddedEventData extends EventData {
   playerId: number,
   points: number,
   positionX: number,

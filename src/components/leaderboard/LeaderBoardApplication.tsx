@@ -8,6 +8,8 @@ import _mockupData from './../../data/mockupPlayerData.json';
 import styled from 'styled-components';
 import AddPointsModal from "./modals/AddPointsModal";
 import AddedPointsAnimation from "../animations/AddedPointsAnimation";
+import Sidebar from "../ui/Sidebar";
+import AddPlayerModal from "./modals/AddPlayerModal";
 
 
 const entryPlayerData = _mockupData.players as PlayerData[];
@@ -17,6 +19,7 @@ const ApplicationContainer = styled.div`
   height: 100%;
   overflow: hidden;
   position: relative;
+  display: flex;
 `;
 
 const LeaderBoardApplication: React.FC = () => {
@@ -31,9 +34,11 @@ const LeaderBoardApplication: React.FC = () => {
     <ApplicationContainer>
       <AddedPointsAnimation/>
       <AddPointsModal/>
+      <AddPlayerModal/>
       <LeaderBoardContainer>
         {leaderboardState.map((p: PlayerData, i) => <PlayerRow key={p.id} data={p} place={i+1} />)}
       </LeaderBoardContainer>
+      <Sidebar/>
     </ApplicationContainer>
   )
 

@@ -16,6 +16,7 @@ const PlayerFactory = ({ characterId }: Props) => {
 
   let animationCarousel = false;
   const playerStyle = useMemo(() => getCharacterStyle(characterId), [characterId])
+  let [startedCarousel, setStartedCarousel] = useState(false);
   const [currentAnimation, setCurrentAnimation] = useState(breatheAnimation);
 
   const decideNewAnimation = () => {
@@ -27,8 +28,9 @@ const PlayerFactory = ({ characterId }: Props) => {
   };
 
   useEffect(() => {
-    if(!animationCarousel) {
+    if(!animationCarousel && !startedCarousel) {
       animationCarousel = true;
+      setStartedCarousel(true);
       setTimeout(decideNewAnimation, Math.random() * 10000);
     }
   }, []);

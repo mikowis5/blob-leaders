@@ -2,9 +2,9 @@ import PlayerData from "./PlayerData.type";
 import Events, { RowStandingMoveUpEventData } from "../../../events/Events";
 import { useAtomValue } from 'jotai';
 import { useCustomEventListener } from 'react-custom-events';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { isAnimatingMoveRowsAtom } from "../../../state/animations/AnimationState";
-import styled from 'styled-components'
+import styled, { keyframes, Keyframes } from 'styled-components'
 import useAnimation from "../../../animations/animationsHook";
 import EdgePlatform from "./EdgePlatform";
 import MainPlatform from "./MainPlatform";
@@ -13,13 +13,24 @@ import AddPointsProvider from "./AddPointsProvider";
 import ClassSign from "./ClassSign";
 import PlayerFactory from "../../player/PlayerFactory";
 
+const EmptyAnimation = keyframes``;
 
-const RowContainer = styled.div<{ margin: number }>`
+const RowAnimation = keyframes`
+  0% { opacity: 0; filter: blur(15px); }
+  100% { opacity: 1;  filter: blur(0px); }
+`;
+
+const RowContainer = styled.div<{ margin: number, animation: Keyframes }>`
   display: flex;
   justify-content: space-between;
   margin: ${({ margin }) => margin}px;
   border-radius: 0.25rem;
   position: relative;
+
+  animation: ${({ animation }) => animation};
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+
 `;
 
 type Props = {
@@ -35,6 +46,13 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
   const rowMargin = 30;
   const rowHeight = useAtomValue(selectRowHeight) + rowMargin;
   const isAnimatingMoveRows = useAtomValue(isAnimatingMoveRowsAtom);
+  const [currentAnimation, setCurrentAnimation] = useState(RowAnimation);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCurrentAnimation(EmptyAnimation);
+    }, 1000);
+  }, []);
 
   /**
    * Move row down when another row takesover
@@ -64,7 +82,8 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
   });
 
   return (
-    <RowContainer 
+    <RowContainer
+      animation={currentAnimation}
       margin={rowMargin}
       style={{ zIndex: 100 + ( (isAnimatingMoveRows ? -1 : 1)*place), transform: `translateY(${offsetY}px)`
     }}>

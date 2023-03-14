@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { emitCustomEvent, useCustomEventListener } from 'react-custom-events'
-import Events, { OpenAddPointsEventData, PointsAddedEventData } from '../../../events/Events';
+import Events, { EventData, OpenAddPointsEventData, PointsAddedEventData } from '../../../events/Events';
 import ButtonCircle from '../../ui/ButtonCircle';
 import { FaCheck, FaTimes } from 'react-icons/fa';
 import { useAtomValue, useSetAtom } from 'jotai';
@@ -10,19 +10,9 @@ import { addPointsToPlayerAction } from '../../../state/leaderboard/actions/addP
 import { isAnimatingAtom } from '../../../state/animations/AnimationState';
 import { sortLeaderboardAction } from '../../../state/leaderboard/actions/sortLeaderboardAction';
 import { AddedPointsAnimationDuration } from '../../animations/AddedPointsAnimation';
+import { ModalBg, ModalContainer } from '../../common/Modal';
+import useModal from '../../../hooks/modalHook';
 
-
-const ModalContainer = styled.div`
-  position: absolute;
-  inset: 0;
-  z-index: 9999;
-`;
-
-const ModalBg = styled.div`
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,.25);
-`;
 
 const InputContainer = styled.div<{ positionX: number, positionY: number }>`
   position: fixed;
@@ -61,7 +51,6 @@ const Arrow = styled.div`
 
 const AddPointsModal = () => {
 
-  const [showAddPointsModal, setShowAddPointsModal] = useState(false);
   const [playerId, setPlayerId] = useState<number>(-1);
   const [posX, setPosX] = useState<number>(-1);
   const [posY, setPosY] = useState<number>(-1);
@@ -72,7 +61,12 @@ const AddPointsModal = () => {
   const runMoveRowsAnimation = useMoveRowsAnimation();
   const sortLeaderboard = useSetAtom(sortLeaderboardAction);
 
-  const hideModal = () => setShowAddPointsModal(false);
+  const { isModalVisible, hideModal } = useModal(Events.OpenAddPointsEvent, (eventData: OpenAddPointsEventData) => {
+    setInputPoints(0);
+    setPosX(eventData.positionX);
+    setPosY(eventData.positionY);
+    setPlayerId(eventData.playerId);
+  });
 
   const submitPoints = () => {
     if(inputPoints > 0) {
@@ -93,14 +87,6 @@ const AddPointsModal = () => {
     hideModal();
   }
 
-  useCustomEventListener(Events.OpenAddPointsEvent, (data: OpenAddPointsEventData) => {
-    setInputPoints(0);
-    setPosX(data.positionX);
-    setPosY(data.positionY);
-    setPlayerId(data.playerId);
-    setShowAddPointsModal(true);
-  });
-
   const handleInputOnChange = (e: any) => {
     setInputPoints(e.target.value ? parseInt(e.target.value) : "");
   }
@@ -108,7 +94,7 @@ const AddPointsModal = () => {
   return (
     <>
       {
-        showAddPointsModal && !isAnimating &&
+        isModalVisible && !isAnimating &&
         <ModalContainer>
           <InputContainer positionX={posX} positionY={posY}>
             <Arrow/>
@@ -116,11 +102,11 @@ const AddPointsModal = () => {
             <ButtonCircle color='blue' onClick={submitPoints}>
               <FaCheck />
             </ButtonCircle>
-            <ButtonCircle onClick={hideModal}>
+            <ButtonCircle onClick={() => hideModal()}>
               <FaTimes />
             </ButtonCircle>
           </InputContainer>
-          <ModalBg onClick={hideModal} />
+          <ModalBg onClick={() => hideModal()} />
         </ModalContainer>
       }
     </>
