@@ -7,7 +7,7 @@ const Animation = keyframes`
   100% { opacity: 0; transform: rotate3d(1, 1, 0, 25deg); }
 `;
 
-const ClassHeader = styled.div`
+const ClassHeader = styled.div<{ delay: number }>`
   position: absolute;
   background: black;
   font-size: 70px;
@@ -18,13 +18,13 @@ const ClassHeader = styled.div`
   animation: ${Animation};
   animation-duration: 3.9s;
   animation-fill-mode: both;
-  animation-delay: 1.3s;
+  animation-delay: ${({ delay }) => delay}s;
 
   z-index: 4;
   margin-top: 400px;
 `;
 
-const EntersGameHeader = styled.div`
+const EntersGameHeader = styled.div<{ delay: number }>`
   position: absolute;
   background: white;
   font-size: 50px;
@@ -35,7 +35,7 @@ const EntersGameHeader = styled.div`
   animation: ${Animation};
   animation-duration: 3.9s;
   animation-fill-mode: both;
-  animation-delay: 1.25s;
+  animation-delay: ${({ delay }) => delay}s;
 
   z-index: 3;
   margin-top: 550px;
@@ -43,14 +43,15 @@ const EntersGameHeader = styled.div`
 
 type Props = {
   topText: string,
-  bottomText: string
+  bottomText: string,
+  delay?: number
 }
-const ClassInfo = ({ topText, bottomText }: Props) => {
+const ClassInfo = ({ topText, bottomText, delay=1.25 }: Props) => {
 
   return (
     <>
-      <ClassHeader>{topText}</ClassHeader>
-      <EntersGameHeader>{bottomText}</EntersGameHeader>
+      <ClassHeader delay={delay}>{topText}</ClassHeader>
+      <EntersGameHeader delay={delay}>{bottomText}</EntersGameHeader>
     </>
   );
 

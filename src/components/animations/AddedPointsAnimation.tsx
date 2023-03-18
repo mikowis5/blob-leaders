@@ -68,7 +68,7 @@ const AddedPointsAnimation = () => {
 
   const [pointsOpacity, setPointsOpacity] = useState(0);
   const [pointsFontSize, setPointsFontSize] = useState(250);
-  const [pointsOffsetX, setPointsOffsetX] = useState('45%');
+  const [pointsOffsetX, setPointsOffsetX] = useState('35%');
   const [pointsOffsetY, setPointsOffsetY] = useState('12.5%');
 
   const [textOffsets, setTextOffsets] = useState(250);

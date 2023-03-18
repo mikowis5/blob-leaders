@@ -4,6 +4,7 @@ import { sortLeaderboardAction } from "../../leaderboard/actions/sortLeaderboard
 import { selectRowsToAnimateToBottom } from "../../leaderboard/selectors/selectRowsToAnimateToBottom";
 import { emitCustomEvent } from "react-custom-events";
 import Events, { RowStandingMoveUpEventData } from "../../../events/Events";
+import { currentLeaderId, leaderboardAtom } from "../../leaderboard/LeaderboardState";
 
 
 export const moveRowsAnimationDuration = 1000;
@@ -37,6 +38,21 @@ export const useMoveRowsAnimation = () => {
     setTimeout(() => {
       set(isAnimatingAtom, false);
       set(isAnimatingMoveRowsAtom, false);
+
+      const leaderBoard = get(leaderboardAtom);
+      const potentialNewLeader = leaderBoard[0].id;
+      const currentLeader = get(currentLeaderId);
+
+      if(leaderBoard.length) {
+        set(currentLeaderId, potentialNewLeader);
+        if(currentLeader > 0 && potentialNewLeader != currentLeader) {
+          setTimeout(() => {
+            emitCustomEvent(Events.NewLeaderEvent);
+          }, 100);
+          
+        }
+      }
+
     }, moveRowsAnimationDuration);
   
   });
