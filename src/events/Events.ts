@@ -3,7 +3,8 @@ enum Events {
   PointsAddedEvent = 'PointsAddedEvent',
   RowStandingMoveDownEvent = 'RowStandingMoveDownEvent',
   RowStandingMoveUpEvent = 'RowStandingMoveUpEvent',
-  OpenAddPlayerEvent = 'OpenAddPlayerEvent'
+  OpenAddPlayerEvent = 'OpenAddPlayerEvent',
+  NewRoundEvent = 'NewRoundEvent'
 }
 
 export interface EventData {
@@ -13,6 +14,10 @@ export interface EventData {
 export interface RowStandingMoveUpEventData extends EventData {
   rowId: number,
   count: number
+}
+
+export interface NewRoundEventData extends EventData {
+  round: number
 }
 
 export interface OpenAddPointsEventData extends EventData {

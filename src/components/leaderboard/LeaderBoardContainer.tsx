@@ -2,6 +2,13 @@ import styled from 'styled-components'
 
 const LeaderBoardList = styled.div`
   width: 80%;
+  overflow-y: auto;
+  direction: rtl;
+
+  > div {
+    direction: ltr;
+  }
+
 `;
 
 type Props = {

@@ -53,6 +53,8 @@ const Button = styled.div<{ bg: string, border: string, shadow: string, size: nu
 `;
 
 const SizeMap = {
+  "xs": 10,
+  "sm": 20,
   "md": 30,
   "lg": 35,
   "xl": 40
@@ -62,7 +64,7 @@ type Props = {
   children?: string | JSX.Element | JSX.Element[],
   onClick?: MouseEventHandler<HTMLDivElement> | undefined,
   color?: 'default' | 'blue' | 'green' | 'red',
-  size?: 'md' | 'lg' | 'xl',
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   opacity?: number
 }
 const ButtonCircle = ({ children, onClick = () => {}, color='default', size='md', opacity=1 }: Props) => {

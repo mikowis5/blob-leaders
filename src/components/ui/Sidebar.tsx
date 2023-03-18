@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Events from '../../events/Events';
 import Row from '../common/Row';
 import ButtonCircle from './ButtonCircle';
+import Rounds from './Rounds';
 
 
 const SidebarContainer = styled.div`
@@ -24,6 +25,7 @@ const Sidebar = () => {
   return (
     <SidebarContainer>
       <div/>
+      <Rounds/>
       <Row>
         <ButtonCircle color='green' size='lg' onClick={openPlayerModalHandler}>
           <FaPlusCircle size={20}/>

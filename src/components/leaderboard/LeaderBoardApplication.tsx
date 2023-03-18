@@ -10,6 +10,7 @@ import AddPointsModal from "./modals/AddPointsModal";
 import AddedPointsAnimation from "../animations/AddedPointsAnimation";
 import Sidebar from "../ui/Sidebar";
 import AddPlayerModal from "./modals/AddPlayerModal";
+import NewRoundAnimation from "../animations/NewRoundAnimation";
 
 
 const entryPlayerData = _mockupData.players as PlayerData[];
@@ -32,6 +33,7 @@ const LeaderBoardApplication: React.FC = () => {
 
   return (
     <ApplicationContainer>
+      <NewRoundAnimation/>
       <AddedPointsAnimation/>
       <AddPointsModal/>
       <AddPlayerModal/>

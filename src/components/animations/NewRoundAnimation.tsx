@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { useCustomEventListener } from 'react-custom-events'
-import Events, { PointsAddedEventData } from '../../events/Events';
+import Events, { NewRoundEventData, PointsAddedEventData } from '../../events/Events';
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { isAnimatingAtom } from '../../state/animations/AnimationState';
 import PlayerData from '../leaderboard/row/PlayerData.type';
@@ -16,7 +16,7 @@ const Container = styled.div<{ opacity: number }>`
   z-index: 9999;
   background: rgba(0,0,0, .2);
   opacity: ${({ opacity }) => opacity};
-  transition: 1s;
+  transition: 0.75s;
 `;
 
 const LinesBg = styled.div`
@@ -29,7 +29,7 @@ const LinesBg = styled.div`
   z-index: 1;
 `;
 
-const PlayerName = styled.h1`
+const RoundLabel = styled.h1`
   position: absolute;
   left: 20%;
   top: 17.5%;
@@ -41,33 +41,29 @@ const PlayerName = styled.h1`
   z-index: 2;
 `;
 
-const AddedPoints = styled.h1<{ opacity: number, fontSize: number, left: string, top: string }>`
+const RoundHeader = styled.h1<{ left: string, top: string }>`
   position: absolute;
   left: ${({ left }) => left};
   top: ${({ top }) => top};
-  font-size: ${({ fontSize }) => fontSize}px;
+  font-size: 250px;
   -webkit-text-stroke: 8px black;
   text-stroke: 8px black;
   color: white;
   font-weight: 900;
-  opacity: ${({ opacity }) => opacity};
   transition: 0.5s;
   z-index: 2;
 `;
 
-export const AddedPointsAnimationDuration = 1850;
+export const NewRoundAnimationDuration = 1850;
 
-const AddedPointsAnimation = () => {
+const NewRoundAnimation = () => {
 
   const [isVisible, setIsVisble] = useState(false);
   const [isAnimating, setIsAnimating] = useAtom(isAnimatingAtom);
-  const getPlayer = useAtomValue(selectPlayer);
 
-  const [player, setPlayer] = useState<PlayerData|null>(null);
-  const [addedPoints, setAddedPoints] = useState(0);
+  const [round, setRound] = useState(0);
 
-  const [pointsOpacity, setPointsOpacity] = useState(0);
-  const [pointsFontSize, setPointsFontSize] = useState(250);
+  const [opacity, setOpacity] = useState(0);
   const [pointsOffsetX, setPointsOffsetX] = useState('45%');
   const [pointsOffsetY, setPointsOffsetY] = useState('12.5%');
 
@@ -81,16 +77,14 @@ const AddedPointsAnimation = () => {
   const restoreDefaults = () => {
     setPointsOffsetX('45%');
     setPointsOffsetY('12.5%');
-    setPointsFontSize(250);
     setTextOffsets(textOffsets);
-    setPointsOpacity(0);
+    setOpacity(0);
   };
 
-  useCustomEventListener(Events.PointsAddedEvent, (data: PointsAddedEventData) => {
+  useCustomEventListener(Events.NewRoundEvent, ({ round }: NewRoundEventData) => {
 
-    setPointsOpacity(1);
-    setPlayer(getPlayer(data.playerId));
-    setAddedPoints(data.points);
+    setRound(round);
+    setOpacity(1);
     runTextOffsetsAnimation();
     
     setTimeout(() => {
@@ -99,16 +93,14 @@ const AddedPointsAnimation = () => {
     }, 50);
 
     setTimeout(() => {
-      setPointsOffsetX(data.positionX + 5 + 'px');
-      setPointsOffsetY(data.positionY - 20 + 'px');
-      setPointsFontSize(50);
-      setPointsOpacity(0);
-    }, AddedPointsAnimationDuration - 500);
+      setOpacity(0);
+    }, NewRoundAnimationDuration - 500);
 
     setTimeout(() => {
+      setIsAnimating(false);
       setIsVisble(false);
       restoreDefaults();
-    }, AddedPointsAnimationDuration);
+    }, NewRoundAnimationDuration);
 
   });
 
@@ -116,23 +108,17 @@ const AddedPointsAnimation = () => {
     <>
       {
         isVisible && isAnimating &&
-        <Container opacity={pointsOpacity}>
-          {player && (
-            <>
-              <PlayerName style={{ transform: `translateX(${-textOffsets}px)` }}>
-                Klasa {player.classNumber}
-              </PlayerName>
-              <div style={{ zIndex: 2, position: 'absolute', inset: 0, transform: `translateX(${textOffsets}px)`}}>
-                <AddedPoints 
-                  opacity={pointsOpacity} 
-                  fontSize={pointsFontSize} 
-                  top={pointsOffsetY} 
-                  left={pointsOffsetX}>
-                  +{addedPoints}
-                </AddedPoints>
-              </div>
-            </>
-          )}
+        <Container opacity={opacity}>
+          <RoundLabel style={{ transform: `translateX(${-textOffsets}px)` }}>
+            Runda
+          </RoundLabel>
+          <div style={{ zIndex: 2, position: 'absolute', inset: 0, transform: `translateX(${textOffsets}px)`}}>
+            <RoundHeader
+              top={pointsOffsetY} 
+              left={pointsOffsetX}>
+              {round}
+            </RoundHeader>
+          </div>
           <LinesBg style={{ transform: `scale(${ 1.5 - (textOffsets/500) })` }} />
         </Container>
       }
@@ -141,4 +127,4 @@ const AddedPointsAnimation = () => {
 
 }
 
-export default AddedPointsAnimation;
+export default NewRoundAnimation;
