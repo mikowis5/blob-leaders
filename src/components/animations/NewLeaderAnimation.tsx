@@ -15,7 +15,7 @@ import BumpImage from "./BumpImage";
 import ClassInfo from "./ClassInfo";
 
 
-const NewLeaderAnimationDuration = 4000;
+const NewLeaderAnimationDuration = 5000;
 
 const BgContainer = styled.div<{ opacity: number }>`
   transition: 0.4s;
@@ -94,7 +94,12 @@ export const NewLeaderAnimation = () => {
       {
         isVisible && player && playerStyle &&
         <ModalContainer style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <ClassInfo delay={0} topText={"Klasa " + player.classNumber} bottomText="NOWYM LIDEREM!" />
+          <ClassInfo 
+            delay={0} 
+            topText={"Klasa " + player.classNumber} 
+            bottomText="NOWYM LIDEREM!"
+            duration={NewLeaderAnimationDuration/1000 - 0.25}
+          />
           <BumpImage 
             bgImage={playerStyle.leaderBg}
             style={{
