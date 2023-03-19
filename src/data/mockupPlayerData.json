@@ -2,100 +2,125 @@
   "players": [
     {
       "id": 1,
-      "classNumber": "I T",
+      "classNumber": "I",
       "points": 10,
       "characterId": 1
     },
     {
       "id": 2,
-      "classNumber": "II T",
+      "classNumber": "II",
       "points": 6,
       "characterId": 2
     },
     {
       "id": 3,
-      "classNumber": "III T",
+      "classNumber": "III",
       "points": 4,
       "characterId": 3
     },
     {
       "id": 4,
-      "classNumber": "IV T",
+      "classNumber": "IV",
       "points": 3,
       "characterId": 4
     },
     {
       "id": 5,
-      "classNumber": "V T",
+      "classNumber": "V",
       "points": 1,
       "characterId": 5
     },
     {
       "id": 6,
-      "classNumber": "VI T",
+      "classNumber": "VI",
       "points": 1,
       "characterId": 6
     },
     {
       "id": 7,
-      "classNumber": "VII T",
+      "classNumber": "VII",
       "points": 1,
       "characterId": 7
     },
     {
       "id": 8,
-      "classNumber": "VIII T",
+      "classNumber": "VIII",
       "points": 1,
       "characterId": 8
     },
     {
       "id": 9,
-      "classNumber": "IX T",
+      "classNumber": "IX",
       "points": 1,
       "characterId": 9
     },
     {
       "id": 10,
-      "classNumber": "X T",
+      "classNumber": "X",
       "points": 1,
       "characterId": 10
     },
     {
       "id": 11,
-      "classNumber": "XI T",
+      "classNumber": "XI",
       "points": 1,
       "characterId": 11
     },
     {
       "id": 12,
-      "classNumber": "XII T",
+      "classNumber": "XII",
       "points": 1,
       "characterId": 12
     },
     {
       "id": 13,
-      "classNumber": "XIII T",
+      "classNumber": "XIII",
       "points": 1,
       "characterId": 13
     },
     {
       "id": 14,
-      "classNumber": "XIV T",
+      "classNumber": "XIV",
       "points": 1,
       "characterId": 14
     },
     {
       "id": 15,
-      "classNumber": "XV T",
+      "classNumber": "XV",
       "points": 1,
       "characterId": 15
     },
     {
       "id": 16,
-      "classNumber": "XVI T",
+      "classNumber": "XVI",
       "points": 1,
       "characterId": 16
+    },
+    {
+      "id": 17,
+      "classNumber": "XVII",
+      "points": 1,
+      "characterId": 17
+    },
+    {
+      "id": 18,
+      "classNumber": "XVIII",
+      "points": 1,
+      "characterId": 18
+    },
+    {
+      "id": 19,
+      "classNumber": "XIX",
+      "points": 1,
+      "characterId": 19
+    },
+    {
+      "id": 20,
+      "classNumber": "XX",
+      "points": 1,
+      "characterId": 20
     }
+
 
   ]
 }

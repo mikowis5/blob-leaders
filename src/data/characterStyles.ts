@@ -24,6 +24,7 @@ import knightLeaderBg from "../assets/img/characters/knight_leader_1.png";
 import knightLeaderImg from "../assets/img/characters/knight_leader_2.png";
 import knightIntroBgBack from "../assets/img/characters/knight_bg_1.png";
 import knightIntroBgReg from "../assets/img/characters/knight_bg_2.png";
+import knightRightHandSpecial from "../assets/img/characters/knight_right_hand_special.png";
 import ninjaHat from "../assets/img/characters/ninja_hat.png";
 import ninjaLeaderBg from "../assets/img/characters/ninja_leader_1.png";
 import ninjaLeaderImg from "../assets/img/characters/ninja_leader_2.png";
@@ -103,7 +104,35 @@ import catIntroBgFront from "../assets/img/characters/cat_bg_3.png";
 import catLeaderBg from "../assets/img/characters/cat_leader_1.png";
 import catLeaderImg from "../assets/img/characters/cat_leader_2.png";
 import catEyeSpecial from "../assets/img/characters/cat_eye_special.png";
-
+import robotHat from "../assets/img/characters/robot_hat.png";
+import robotIntroBgReg from "../assets/img/characters/robot_bg_2.png";
+import robotIntroBgBack from "../assets/img/characters/robot_bg_1.png";
+import robotLeaderBg from "../assets/img/characters/robot_leader_1.png";
+import robotLeaderImg from "../assets/img/characters/robot_leader_2.png";
+import robotEyeSpecial from "../assets/img/characters/robot_eye_special.png";
+import captainHat from "../assets/img/characters/captain_hat.png";
+import captainIntroBgReg from "../assets/img/characters/captain_bg_2.png";
+import captainIntroBgBack from "../assets/img/characters/captain_bg_1.png";
+import captainIntroBgFront from "../assets/img/characters/captain_bg_3.png";
+import captainLeaderBg from "../assets/img/characters/captain_leader_1.png";
+import captainLeaderImg from "../assets/img/characters/captain_leader_2.png";
+import captainEyeSpecial from "../assets/img/characters/captain_eye_special.png";
+import captainRightHandSpecial from "../assets/img/characters/captain_right_hand_special.png";
+import painterHat from "../assets/img/characters/painter_hat.png";
+import painterIntroBgReg from "../assets/img/characters/painter_bg_2.png";
+import painterIntroBgBack from "../assets/img/characters/painter_bg_1.png";
+import painterIntroBgFront from "../assets/img/characters/painter_bg_3.png";
+import painterLeaderBg from "../assets/img/characters/painter_leader_1.png";
+import painterLeaderImg from "../assets/img/characters/painter_leader_2.png";
+import painterLeftHandSpecial from "../assets/img/characters/painter_left_hand_special.png";
+import painterRightHandSpecial from "../assets/img/characters/painter_right_hand_special.png";
+import policeHat from "../assets/img/characters/police_hat.png";
+import policeIntroBgReg from "../assets/img/characters/police_bg_2.png";
+import policeIntroBgBack from "../assets/img/characters/police_bg_1.png";
+import policeIntroBgFront from "../assets/img/characters/police_bg_3.png";
+import policeLeaderBg from "../assets/img/characters/police_leader_1.png";
+import policeLeaderImg from "../assets/img/characters/police_leader_2.png";
+import policeRightHandSpecial from "../assets/img/characters/police_right_hand_special.png";
 
 export const getCharacterStyle = (characterId: number): PlayerStyle => {
   switch(characterId) {
@@ -156,6 +185,7 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         bodyColor: '#ffee44',
         eyeColor: '#3355ee',
         hat: knightHat,
+        rightHandSpecial: knightRightHandSpecial,
         introBgBack: knightIntroBgBack,
         introBgReg: knightIntroBgReg,
         leaderBg: knightLeaderBg,
@@ -292,7 +322,7 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         bodyColor: '#d71216',
         eyeColor: '#535353',
         hat: vikingHat,
-        leftHandSpecial: vikingLeftHandSpecial,
+        rightHandSpecial: vikingLeftHandSpecial,
         leaderBg: vikingLeaderBg,
         leaderImg: vikingLeaderImg,
         introBgBack: vikingIntroBgBack,
@@ -306,7 +336,7 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         bodyColor: '#f6ed0d',
         eyeColor: '#40cd46',
         hat: archerHat,
-        leftHandSpecial: archerLeftHandSpecial,
+        rightHandSpecial: archerLeftHandSpecial,
         leaderBg: archerLeaderBg,
         leaderImg: archerLeaderImg,
         introBgBack: archerIntroBgBack,
@@ -328,6 +358,66 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         introBgReg: catIntroBgReg,
         introBgFront: catIntroBgFront
       }
+
+    case 17:
+      return {
+        name: 'robot',
+        bodyColor: '#7b7093',
+        eyeColor: '#7b7093',
+        hat: robotHat,
+        eyeSpecial: robotEyeSpecial,
+        hideMouth: true,
+        leaderBg: robotLeaderBg,
+        leaderImg: robotLeaderImg,
+        introBgBack: robotIntroBgBack,
+        introBgReg: robotIntroBgReg,
+        introBgFront: empty
+      }
+
+    case 18:
+      return {
+        name: 'captain',
+        bodyColor: '#2943b3',
+        eyeColor: '#ef6f4d',
+        hat: captainHat,
+        eyeSpecial: captainEyeSpecial,
+        rightHandSpecial: captainRightHandSpecial,
+        leaderBg: captainLeaderBg,
+        leaderImg: captainLeaderImg,
+        introBgBack: captainIntroBgBack,
+        introBgReg: captainIntroBgReg,
+        introBgFront: captainIntroBgFront
+      }
+
+    case 19:
+      return {
+        name: 'painter',
+        bodyColor: '#2ad8b6',
+        eyeColor: '#69e363',
+        hat: painterHat,
+        leftHandSpecial: painterLeftHandSpecial,
+        rightHandSpecial: painterRightHandSpecial,
+        leaderBg: painterLeaderBg,
+        leaderImg: painterLeaderImg,
+        introBgBack: painterIntroBgBack,
+        introBgReg: painterIntroBgReg,
+        introBgFront: painterIntroBgFront
+      }
+
+    case 20:
+      return {
+        name: 'police',
+        bodyColor: '#2700cf',
+        eyeColor: '#24b4ff',
+        hat: policeHat,
+        rightHandSpecial: policeRightHandSpecial,
+        leaderBg: policeLeaderBg,
+        leaderImg: policeLeaderImg,
+        introBgBack: policeIntroBgBack,
+        introBgReg: policeIntroBgReg,
+        introBgFront: policeIntroBgFront
+      }
+      
 
     default:
       return {

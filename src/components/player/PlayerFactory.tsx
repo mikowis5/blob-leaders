@@ -4,9 +4,11 @@ import PlayerCharacter from "./PlayerCharacter";
 import breatheAnimation from "./animations/breatheAnimation";
 import yawnAnimation from "./animations/yawnAnimation";
 import wavingAnimation from "./animations/wavingAnimation";
+import lookIrAnimation from "./animations/lookIrAnimation";
+
 
 const animations = [
-  breatheAnimation, yawnAnimation, wavingAnimation
+  breatheAnimation, yawnAnimation, lookIrAnimation, wavingAnimation
 ];
 
 type Props = {

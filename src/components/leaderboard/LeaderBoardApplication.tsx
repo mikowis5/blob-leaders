@@ -30,7 +30,7 @@ const LeaderBoardApplication: React.FC = () => {
   const [leaderboardState, setLeaderboardState] = useAtom(leaderboardAtom);
 
   useEffect(() => {
-    setLeaderboardState(entryPlayerData);
+    setLeaderboardState([]);
   }, []);
 
   return (
