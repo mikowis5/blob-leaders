@@ -23,6 +23,7 @@ const BlobContainer = styled.div<{ styleSet: PlayerStyle, animation?: PlayerAnim
     animation-fill-mode: ${({ animation }) => animation?.body?.fillMode ?? 'none'};
   }
   .eye-container.eye-right {
+    z-index: 3;
     animation-name: ${({ animation }) => animation?.rightEye?.keyframes ?? 'none'};
     animation-duration: ${({ animation }) => animation?.rightEye?.duration ?? 0}s;
     animation-iteration-count: ${({ animation }) => animation?.rightEye?.iterationCount ?? 'infinite'};
@@ -30,6 +31,7 @@ const BlobContainer = styled.div<{ styleSet: PlayerStyle, animation?: PlayerAnim
     animation-fill-mode: ${({ animation }) => animation?.rightEye?.fillMode ?? 'none'};
   }
   .eye-container.eye-left {
+    z-index: 4;
     animation-name: ${({ animation }) => animation?.leftEye?.keyframes ?? 'none'};
     animation-duration: ${({ animation }) => animation?.leftEye?.duration ?? 0}s;
     animation-iteration-count: ${({ animation }) => animation?.leftEye?.iterationCount ?? 'infinite'};
@@ -152,6 +154,18 @@ const BlobContainer = styled.div<{ styleSet: PlayerStyle, animation?: PlayerAnim
     left: -42px;
     top: -45px;
   }
+  .eye-special {
+    z-index: 10;
+    position: absolute;
+    display: ${({ styleSet }) => styleSet.eyeSpecial ? 'inline' : 'none'};
+    background: url('${({ styleSet }) => styleSet.eyeSpecial}');
+    background-size: cover;
+    background-position: center;
+    width: 80px;
+    height: 80px;
+    left: -26px;
+    top: -27px;
+  }
 `;
 type Props = {
   characterStyle: PlayerStyle,
@@ -162,6 +176,7 @@ const PlayerCharacter = ({ characterStyle, animation } : Props) => {
     <BlobContainer animation={animation} styleSet={characterStyle} >
       <div className="eye-left eye-container">
         <div className="eye-brow"/>
+        <div className="eye-special"/>
         <div className="eye">
           <div className="eye-pupil">
             <div className="pupil-shrinkle"/>

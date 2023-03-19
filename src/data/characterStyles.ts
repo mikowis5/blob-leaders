@@ -33,6 +33,14 @@ import angelIntroBgFront from "../assets/img/characters/angel_bg_3.png";
 import angelLeaderBg from "../assets/img/characters/angel_leader_1.png";
 import angelLeaderImg from "../assets/img/characters/angel_leader_2.png";
 import angelAddBody from "../assets/img/characters/angel_addbody.png";
+import afroHat from "../assets/img/characters/afro_hat.png";
+import afroIntroBgReg from "../assets/img/characters/afro_bg_2.png";
+import afroIntroBgBack from "../assets/img/characters/afro_bg_1.png";
+import afroIntroBgFront from "../assets/img/characters/afro_bg_3.png";
+import afroLeaderBg from "../assets/img/characters/afro_leader_1.png";
+import afroLeaderImg from "../assets/img/characters/afro_leader_2.png";
+import afroEyeSpecial from "../assets/img/characters/afro_eye_special.png";
+
 
 
 export const getCharacterStyle = (characterId: number): PlayerStyle => {
@@ -124,6 +132,20 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         introBgBack: angelIntroBgBack,
         introBgReg: empty,
         introBgFront: angelIntroBgFront
+      }
+
+    case 8:
+      return {
+        name: 'afro',
+        bodyColor: '#ffffff',
+        eyeColor: '#3355ee',
+        hat: afroHat,
+        eyeSpecial: afroEyeSpecial,
+        leaderBg: afroLeaderBg,
+        leaderImg: afroLeaderImg,
+        introBgBack: afroIntroBgBack,
+        introBgReg: afroIntroBgReg,
+        introBgFront: afroIntroBgFront
       }
 
     default:

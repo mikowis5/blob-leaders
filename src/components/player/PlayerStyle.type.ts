@@ -4,6 +4,7 @@ type PlayerStyle = {
   eyeColor: string,
   hat?: string,
   addBody?: string,
+  eyeSpecial?: string,
   introBgReg?: string,
   introBgBack?: string,
   introBgFront?: string,
