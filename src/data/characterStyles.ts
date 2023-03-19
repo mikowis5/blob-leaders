@@ -40,7 +40,13 @@ import afroIntroBgFront from "../assets/img/characters/afro_bg_3.png";
 import afroLeaderBg from "../assets/img/characters/afro_leader_1.png";
 import afroLeaderImg from "../assets/img/characters/afro_leader_2.png";
 import afroEyeSpecial from "../assets/img/characters/afro_eye_special.png";
-
+import boxerIntroBgReg from "../assets/img/characters/boxer_bg_2.png";
+import boxerIntroBgBack from "../assets/img/characters/boxer_bg_1.png";
+import boxerIntroBgFront from "../assets/img/characters/boxer_bg_3.png";
+import boxerLeaderBg from "../assets/img/characters/boxer_leader_1.png";
+import boxerLeaderImg from "../assets/img/characters/boxer_leader_2.png";
+import boxerLeftHandSpecial from "../assets/img/characters/boxer_left_hand_special.png";
+import boxerRightHandSpecial from "../assets/img/characters/boxer_right_hand_special.png";
 
 
 export const getCharacterStyle = (characterId: number): PlayerStyle => {
@@ -146,6 +152,20 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         introBgBack: afroIntroBgBack,
         introBgReg: afroIntroBgReg,
         introBgFront: afroIntroBgFront
+      }
+
+    case 9:
+      return {
+        name: 'boxer',
+        bodyColor: '#b6e451',
+        eyeColor: '#ebaf7f',
+        leftHandSpecial: boxerLeftHandSpecial,
+        rightHandSpecial: boxerRightHandSpecial,
+        leaderBg: boxerLeaderBg,
+        leaderImg: boxerLeaderImg,
+        introBgBack: boxerIntroBgBack,
+        introBgReg: boxerIntroBgReg,
+        introBgFront: boxerIntroBgFront
       }
 
     default:

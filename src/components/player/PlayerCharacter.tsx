@@ -166,6 +166,27 @@ const BlobContainer = styled.div<{ styleSet: PlayerStyle, animation?: PlayerAnim
     left: -26px;
     top: -27px;
   }
+  .left-hand-special {
+    display: ${({ styleSet }) => styleSet.leftHandSpecial ? 'inline' : 'none'};
+    background: url('${({ styleSet }) => styleSet.leftHandSpecial}');
+    background-size: cover;
+    background-position: center;
+  }
+  .right-hand-special {
+    display: ${({ styleSet }) => styleSet.rightHandSpecial ? 'inline' : 'none'};
+    background: url('${({ styleSet }) => styleSet.rightHandSpecial}');
+    background-size: cover;
+    background-position: center;
+  }
+  .hand-special {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    left: -36px;
+    top: -15px;
+    background-size: cover;
+    background-position: center;
+  }
 `;
 type Props = {
   characterStyle: PlayerStyle,
@@ -202,8 +223,12 @@ const PlayerCharacter = ({ characterStyle, animation } : Props) => {
         </div>
         <div className="blob-hat"/>
         <div className="blob-mouth"/>
-        <div className="blob-hand left-hand"/>
-        <div className="blob-hand right-hand"/>
+        <div className="blob-hand left-hand">
+          <div className="hand-special left-hand-special"/>
+        </div>
+        <div className="blob-hand right-hand">
+          <div className="hand-special right-hand-special"/>
+        </div>
       </div>
     </BlobContainer>
   );
