@@ -1,5 +1,13 @@
 import PlayerStyle from "../components/player/PlayerStyle.type";
 import empty from "../assets/img/characters/empty.png";
+import baseballHat from "../assets/img/characters/baseball_hat.png";
+import baseballLeftHandSpecial from "../assets/img/characters/baseball_left_hand_special.png";
+import baseballRightHandSpecial from "../assets/img/characters/baseball_right_hand_special.png";
+import baseballIntroBgReg from "../assets/img/characters/baseball_bg_2.png";
+import baseballIntroBgBack from "../assets/img/characters/baseball_bg_1.png";
+import baseballIntroBgFront from "../assets/img/characters/baseball_bg_3.png";
+import baseballLeaderBg from "../assets/img/characters/baseball_leader_1.png";
+import baseballLeaderImg from "../assets/img/characters/baseball_leader_2.png";
 import phraohHat from "../assets/img/characters/phraoh_hat.png";
 import phraohIntroBgReg from "../assets/img/characters/phraoh_bg_2.png";
 import phraohIntroBgBack from "../assets/img/characters/phraoh_bg_1.png";
@@ -47,6 +55,13 @@ import boxerLeaderBg from "../assets/img/characters/boxer_leader_1.png";
 import boxerLeaderImg from "../assets/img/characters/boxer_leader_2.png";
 import boxerLeftHandSpecial from "../assets/img/characters/boxer_left_hand_special.png";
 import boxerRightHandSpecial from "../assets/img/characters/boxer_right_hand_special.png";
+import witchHat from "../assets/img/characters/witch_hat.png";
+import witchLeftHandSpecial from "../assets/img/characters/witch_left_hand_special.png";
+import witchIntroBgReg from "../assets/img/characters/witch_bg_2.png";
+import witchIntroBgBack from "../assets/img/characters/witch_bg_1.png";
+import witchIntroBgFront from "../assets/img/characters/witch_bg_3.png";
+import witchLeaderBg from "../assets/img/characters/witch_leader_1.png";
+import witchLeaderImg from "../assets/img/characters/witch_leader_2.png";
 
 
 export const getCharacterStyle = (characterId: number): PlayerStyle => {
@@ -54,11 +69,18 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
 
     case 1:
       return {
-        name: 'Blob',
+        name: 'Baseball',
         bodyColor: '#5c00ff',
         eyeColor: '#00aeff',
-        leaderBg: phraohLeaderBg,
-        leaderImg: phraohLeaderImg
+        hat: baseballHat,
+        hatZindex: 5,
+        leftHandSpecial: baseballLeftHandSpecial,
+        rightHandSpecial: baseballRightHandSpecial,
+        introBgBack: baseballIntroBgBack,
+        introBgReg: baseballIntroBgReg,
+        introBgFront: baseballIntroBgFront,
+        leaderBg: baseballLeaderBg,
+        leaderImg: baseballLeaderImg
       }
 
     case 2:
@@ -166,6 +188,20 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         introBgBack: boxerIntroBgBack,
         introBgReg: boxerIntroBgReg,
         introBgFront: boxerIntroBgFront
+      }
+
+    case 10:
+      return {
+        name: 'witch',
+        bodyColor: '#910ef5',
+        eyeColor: '#4ef87e',
+        hat: witchHat,
+        leftHandSpecial: witchLeftHandSpecial,
+        leaderBg: witchLeaderBg,
+        leaderImg: witchLeaderImg,
+        introBgBack: witchIntroBgBack,
+        introBgReg: witchIntroBgReg,
+        introBgFront: witchIntroBgFront
       }
 
     default:

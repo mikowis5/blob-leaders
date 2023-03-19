@@ -3,6 +3,7 @@ type PlayerStyle = {
   bodyColor: string,
   eyeColor: string,
   hat?: string,
+  hatZindex?: number,
   addBody?: string,
   eyeSpecial?: string,
   leftHandSpecial?: string,

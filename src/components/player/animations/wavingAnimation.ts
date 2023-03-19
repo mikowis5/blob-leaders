@@ -15,12 +15,12 @@ const leftHand: AnimationProps = {
   keyframes: keyframes`
     0% { transform: translateX(0) translateY(0) rotate(-35deg); }
     30% { transform: translateX(0) translateY(0) rotate(-35deg); }
-    70% { transform: translateX(-15px) translateY(-30px) rotate(135deg); }
-    80% { transform: translateX(-15px) translateY(-30px) rotate(135deg); }
-    83% { transform: translateX(-10px) translateY(-30px) rotate(115deg); }
-    86% { transform: translateX(-20px) translateY(-30px) rotate(155deg); }
-    90% { transform: translateX(-15px) translateY(-30px) rotate(135deg); }
-    100% { transform: translateX(-15px) translateY(-30px) rotate(135deg); }
+    70% { transform: translateX(-15px) translateY(-30px) rotate(-135deg); }
+    80% { transform: translateX(-15px) translateY(-30px) rotate(-135deg); }
+    83% { transform: translateX(-10px) translateY(-30px) rotate(-115deg); }
+    86% { transform: translateX(-20px) translateY(-30px) rotate(-155deg); }
+    90% { transform: translateX(-15px) translateY(-30px) rotate(-135deg); }
+    100% { transform: translateX(-15px) translateY(-30px) rotate(-135deg); }
   `,
   duration: 4
 };

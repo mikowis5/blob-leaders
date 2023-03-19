@@ -143,6 +143,7 @@ const BlobContainer = styled.div<{ styleSet: PlayerStyle, animation?: PlayerAnim
     display: ${({ styleSet }) => styleSet.hat ? 'inline' : 'none'};
     background: url('${({ styleSet }) => styleSet.hat}');
     background-size: cover;
+    z-index:  ${({ styleSet }) => styleSet.hatZindex ?? 2};
   }
   .blob-addbody {
     position: absolute;
@@ -180,10 +181,10 @@ const BlobContainer = styled.div<{ styleSet: PlayerStyle, animation?: PlayerAnim
   }
   .hand-special {
     position: absolute;
-    width: 85px;
+    width: 110px;
     height: 85px;
-    left: -36px;
-    top: -15px;
+    left: -47px;
+    top: -14px;
     background-size: cover;
     background-position: center;
   }
