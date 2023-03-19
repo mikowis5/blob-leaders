@@ -89,6 +89,14 @@ import vikingIntroBgFront from "../assets/img/characters/viking_bg_3.png";
 import vikingLeaderBg from "../assets/img/characters/viking_leader_1.png";
 import vikingLeaderImg from "../assets/img/characters/viking_leader_2.png";
 import vikingLeftHandSpecial from "../assets/img/characters/viking_left_hand_special.png";
+import archerHat from "../assets/img/characters/archer_hat.png";
+import archerIntroBgReg from "../assets/img/characters/archer_bg_2.png";
+import archerIntroBgBack from "../assets/img/characters/archer_bg_1.png";
+import archerIntroBgFront from "../assets/img/characters/archer_bg_3.png";
+import archerLeaderBg from "../assets/img/characters/archer_leader_1.png";
+import archerLeaderImg from "../assets/img/characters/archer_leader_2.png";
+import archerLeftHandSpecial from "../assets/img/characters/archer_left_hand_special.png";
+
 
 
 export const getCharacterStyle = (characterId: number): PlayerStyle => {
@@ -284,6 +292,20 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         introBgBack: vikingIntroBgBack,
         introBgReg: vikingIntroBgReg,
         introBgFront: vikingIntroBgFront
+      }
+
+    case 15:
+      return {
+        name: 'archer',
+        bodyColor: '#f6ed0d',
+        eyeColor: '#40cd46',
+        hat: archerHat,
+        leftHandSpecial: archerLeftHandSpecial,
+        leaderBg: archerLeaderBg,
+        leaderImg: archerLeaderImg,
+        introBgBack: archerIntroBgBack,
+        introBgReg: archerIntroBgReg,
+        introBgFront: archerIntroBgFront
       }
 
     default:
