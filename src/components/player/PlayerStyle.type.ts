@@ -6,6 +6,7 @@ type PlayerStyle = {
   hatZindex?: number,
   addBody?: string,
   eyeSpecial?: string,
+  hideMouth?: boolean,
   leftHandSpecial?: string,
   rightHandSpecial?: string,
   introBgReg?: string,

@@ -81,6 +81,9 @@ const BlobContainer = styled.div<{ styleSet: PlayerStyle, animation?: PlayerAnim
     animation-fill-mode: ${({ animation }) => animation?.rightEyeLidBottom?.fillMode ?? 'none'};
   }
   .blob-mouth {
+
+    display: ${({ styleSet }) => !styleSet.hideMouth ? 'inline' : 'none'};
+
     animation-name: ${({ animation }) => animation?.mouth?.keyframes ?? 'none'};
     animation-duration: ${({ animation }) => animation?.mouth?.duration ?? 0}s;
     animation-iteration-count: ${({ animation }) => animation?.mouth?.iterationCount ?? 'infinite'};

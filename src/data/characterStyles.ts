@@ -96,7 +96,13 @@ import archerIntroBgFront from "../assets/img/characters/archer_bg_3.png";
 import archerLeaderBg from "../assets/img/characters/archer_leader_1.png";
 import archerLeaderImg from "../assets/img/characters/archer_leader_2.png";
 import archerLeftHandSpecial from "../assets/img/characters/archer_left_hand_special.png";
-
+import catHat from "../assets/img/characters/cat_hat.png";
+import catIntroBgReg from "../assets/img/characters/cat_bg_2.png";
+import catIntroBgBack from "../assets/img/characters/cat_bg_1.png";
+import catIntroBgFront from "../assets/img/characters/cat_bg_3.png";
+import catLeaderBg from "../assets/img/characters/cat_leader_1.png";
+import catLeaderImg from "../assets/img/characters/cat_leader_2.png";
+import catEyeSpecial from "../assets/img/characters/cat_eye_special.png";
 
 
 export const getCharacterStyle = (characterId: number): PlayerStyle => {
@@ -306,6 +312,21 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         introBgBack: archerIntroBgBack,
         introBgReg: archerIntroBgReg,
         introBgFront: archerIntroBgFront
+      }
+
+    case 16:
+      return {
+        name: 'cat',
+        bodyColor: '#eb25ac',
+        eyeColor: '#301c48',
+        hat: catHat,
+        eyeSpecial: catEyeSpecial,
+        hideMouth: true,
+        leaderBg: catLeaderBg,
+        leaderImg: catLeaderImg,
+        introBgBack: catIntroBgBack,
+        introBgReg: catIntroBgReg,
+        introBgFront: catIntroBgFront
       }
 
     default:

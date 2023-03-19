@@ -89,6 +89,12 @@
       "classNumber": "XV T",
       "points": 1,
       "characterId": 15
+    },
+    {
+      "id": 16,
+      "classNumber": "XVI T",
+      "points": 1,
+      "characterId": 16
     }
 
   ]
