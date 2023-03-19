@@ -29,6 +29,61 @@
       "classNumber": "VI A",
       "points": 1,
       "characterId": 5
+    },
+    {
+      "id": 6,
+      "classNumber": "VI A",
+      "points": 1,
+      "characterId": 6
+    },
+    {
+      "id": 7,
+      "classNumber": "VI A",
+      "points": 1,
+      "characterId": 7
+    },
+    {
+      "id": 8,
+      "classNumber": "VI A",
+      "points": 1,
+      "characterId": 8
+    },
+    {
+      "id": 9,
+      "classNumber": "VI A",
+      "points": 1,
+      "characterId": 9
+    },
+    {
+      "id": 10,
+      "classNumber": "VI A",
+      "points": 1,
+      "characterId": 10
+    },
+    {
+      "id": 11,
+      "classNumber": "VI A",
+      "points": 1,
+      "characterId": 11
+    },
+    {
+      "id": 12,
+      "classNumber": "VI A",
+      "points": 1,
+      "characterId": 12
+    },
+    {
+      "id": 13,
+      "classNumber": "VI A",
+      "points": 1,
+      "characterId": 13
+    },
+    {
+      "id": 14,
+      "classNumber": "VI A",
+      "points": 1,
+      "characterId": 14
     }
+
   ]
 }

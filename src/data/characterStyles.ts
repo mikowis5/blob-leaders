@@ -62,6 +62,33 @@ import witchIntroBgBack from "../assets/img/characters/witch_bg_1.png";
 import witchIntroBgFront from "../assets/img/characters/witch_bg_3.png";
 import witchLeaderBg from "../assets/img/characters/witch_leader_1.png";
 import witchLeaderImg from "../assets/img/characters/witch_leader_2.png";
+import nobleHat from "../assets/img/characters/noble_hat.png";
+import nobleIntroBgReg from "../assets/img/characters/noble_bg_2.png";
+import nobleIntroBgBack from "../assets/img/characters/noble_bg_1.png";
+import nobleIntroBgFront from "../assets/img/characters/noble_bg_3.png";
+import nobleLeaderBg from "../assets/img/characters/noble_leader_1.png";
+import nobleLeaderImg from "../assets/img/characters/noble_leader_2.png";
+import nobleEyeSpecial from "../assets/img/characters/noble_eye_special.png";
+import chefHat from "../assets/img/characters/chef_hat.png";
+import chefIntroBgReg from "../assets/img/characters/chef_bg_2.png";
+import chefIntroBgBack from "../assets/img/characters/chef_bg_1.png";
+import chefIntroBgFront from "../assets/img/characters/chef_bg_3.png";
+import chefLeaderBg from "../assets/img/characters/chef_leader_1.png";
+import chefLeaderImg from "../assets/img/characters/chef_leader_2.png";
+import chefLeftHandSpecial from "../assets/img/characters/chef_left_hand_special.png";
+import generalHat from "../assets/img/characters/general_hat.png";
+import generalIntroBgReg from "../assets/img/characters/general_bg_2.png";
+import generalIntroBgBack from "../assets/img/characters/general_bg_1.png";
+import generalIntroBgFront from "../assets/img/characters/general_bg_3.png";
+import generalLeaderBg from "../assets/img/characters/general_leader_1.png";
+import generalLeaderImg from "../assets/img/characters/general_leader_2.png";
+import vikingHat from "../assets/img/characters/viking_hat.png";
+import vikingIntroBgReg from "../assets/img/characters/viking_bg_2.png";
+import vikingIntroBgBack from "../assets/img/characters/viking_bg_1.png";
+import vikingIntroBgFront from "../assets/img/characters/viking_bg_3.png";
+import vikingLeaderBg from "../assets/img/characters/viking_leader_1.png";
+import vikingLeaderImg from "../assets/img/characters/viking_leader_2.png";
+import vikingLeftHandSpecial from "../assets/img/characters/viking_left_hand_special.png";
 
 
 export const getCharacterStyle = (characterId: number): PlayerStyle => {
@@ -202,6 +229,61 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         introBgBack: witchIntroBgBack,
         introBgReg: witchIntroBgReg,
         introBgFront: witchIntroBgFront
+      }
+
+    case 11:
+      return {
+        name: 'noble',
+        bodyColor: '#dd0c47',
+        eyeColor: '#917c95',
+        hat: nobleHat,
+        eyeSpecial: nobleEyeSpecial,
+        leaderBg: nobleLeaderBg,
+        leaderImg: nobleLeaderImg,
+        introBgBack: nobleIntroBgBack,
+        introBgReg: nobleIntroBgReg,
+        introBgFront: nobleIntroBgFront
+      }
+
+    case 12:
+      return {
+        name: 'chef',
+        bodyColor: '#0de9e1',
+        eyeColor: '#eb4e4a',
+        hat: chefHat,
+        leftHandSpecial: chefLeftHandSpecial,
+        leaderBg: chefLeaderBg,
+        leaderImg: chefLeaderImg,
+        introBgBack: chefIntroBgBack,
+        introBgReg: chefIntroBgReg,
+        introBgFront: chefIntroBgFront
+      }
+
+    case 13:
+      return {
+        name: 'general',
+        bodyColor: '#41d81e',
+        eyeColor: '#00aeff',
+        hat: generalHat,
+        leaderBg: generalLeaderBg,
+        leaderImg: generalLeaderImg,
+        introBgBack: generalIntroBgBack,
+        introBgReg: generalIntroBgReg,
+        introBgFront: generalIntroBgFront
+      }
+
+    case 14:
+      return {
+        name: 'viking',
+        bodyColor: '#d71216',
+        eyeColor: '#535353',
+        hat: vikingHat,
+        leftHandSpecial: vikingLeftHandSpecial,
+        leaderBg: vikingLeaderBg,
+        leaderImg: vikingLeaderImg,
+        introBgBack: vikingIntroBgBack,
+        introBgReg: vikingIntroBgReg,
+        introBgFront: vikingIntroBgFront
       }
 
     default:
