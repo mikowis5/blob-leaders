@@ -27,6 +27,13 @@ import cowboyIntroBgReg from "../assets/img/characters/cowboy_bg_2.png";
 import cowboyIntroBgBack from "../assets/img/characters/cowboy_bg_1.png";
 import cowboyLeaderBg from "../assets/img/characters/cowboy_leader_1.png";
 import cowboyLeaderImg from "../assets/img/characters/cowboy_leader_2.png";
+import angelHat from "../assets/img/characters/angel_hat.png";
+import angelIntroBgBack from "../assets/img/characters/angel_bg_1.png";
+import angelIntroBgFront from "../assets/img/characters/angel_bg_3.png";
+import angelLeaderBg from "../assets/img/characters/angel_leader_1.png";
+import angelLeaderImg from "../assets/img/characters/angel_leader_2.png";
+import angelAddBody from "../assets/img/characters/angel_addbody.png";
+
 
 export const getCharacterStyle = (characterId: number): PlayerStyle => {
   switch(characterId) {
@@ -103,6 +110,20 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         introBgBack: cowboyIntroBgBack,
         introBgReg: cowboyIntroBgReg,
         introBgFront: empty
+      }
+
+    case 7:
+      return {
+        name: 'Angel',
+        bodyColor: '#1b66f1',
+        eyeColor: '#4ff8d6',
+        hat: angelHat,
+        addBody: angelAddBody,
+        leaderBg: angelLeaderBg,
+        leaderImg: angelLeaderImg,
+        introBgBack: angelIntroBgBack,
+        introBgReg: empty,
+        introBgFront: angelIntroBgFront
       }
 
     default:

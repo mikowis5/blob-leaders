@@ -142,6 +142,16 @@ const BlobContainer = styled.div<{ styleSet: PlayerStyle, animation?: PlayerAnim
     background: url('${({ styleSet }) => styleSet.hat}');
     background-size: cover;
   }
+  .blob-addbody {
+    position: absolute;
+    display: ${({ styleSet }) => styleSet.addBody ? 'inline' : 'none'};
+    background: url('${({ styleSet }) => styleSet.addBody}');
+    background-size: cover;
+    width: 180px;
+    height: 180px;
+    left: -42px;
+    top: -45px;
+  }
 `;
 type Props = {
   characterStyle: PlayerStyle,
@@ -171,6 +181,7 @@ const PlayerCharacter = ({ characterStyle, animation } : Props) => {
         </div>
       </div>
       <div className="blob">
+        <div className="blob-addbody"/>
         <div className="blob-body">
           <BlobSvg/>
         </div>
