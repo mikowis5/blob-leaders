@@ -8,11 +8,16 @@ import PlayerData from '../leaderboard/row/PlayerData.type';
 import { selectPlayer } from '../../state/leaderboard/selectors/selectPlayer';
 import useAnimation from '../../animations/animationsHook';
 import linesBg from '../../assets/img/anime-lines.jpeg'
+import PlayerCharacter from '../player/PlayerCharacter';
+import { getCharacterStyle } from '../../data/characterStyles';
+import pointsAddedAnimation from '../player/animations/pointsAddedAnimation';
 
 
 const Container = styled.div<{ opacity: number }>`
   position: fixed;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  width: 100vh;
   z-index: 9999;
   background: rgba(0,0,0, .2);
   opacity: ${({ opacity }) => opacity};
@@ -53,6 +58,14 @@ const AddedPoints = styled.h1<{ opacity: number, fontSize: number, left: string,
   opacity: ${({ opacity }) => opacity};
   transition: 0.5s;
   z-index: 2;
+`;
+
+const PlayerAnim = styled.div`
+  z-index: 5;
+  position: absolute;
+  left: 175px;
+  bottom: 175px;
+  transform: scale(3);
 `;
 
 export const AddedPointsAnimationDuration = 1850;
@@ -134,6 +147,9 @@ const AddedPointsAnimation = () => {
             </>
           )}
           <LinesBg style={{ transform: `scale(${ 1.5 - (textOffsets/500) })` }} />
+          <PlayerAnim>
+            {player && <PlayerCharacter characterStyle={getCharacterStyle(player.characterId)} animation={pointsAddedAnimation} />}
+        </PlayerAnim>
         </Container>
       }
     </>

@@ -13,7 +13,7 @@ const container: AnimationProps = {
 
 const leftHand: AnimationProps = {
   keyframes: keyframes`
-    0% { transform: translateX(0) translateY(0) rotate(-35deg); }
+    0% { transform: translateX(0) translateY(0) rotate(-10deg); }
     30% { transform: translateX(0) translateY(0) rotate(-35deg); }
     70% { transform: translateX(-15px) translateY(-30px) rotate(-135deg); }
     80% { transform: translateX(-15px) translateY(-30px) rotate(-135deg); }
@@ -27,7 +27,7 @@ const leftHand: AnimationProps = {
 
 const rightHand: AnimationProps = {
   keyframes: keyframes`
-    0% { transform: translateX(0) translateY(0) rotate(-15deg); }
+    0% { transform: translateX(0) translateY(0) rotate(-35deg); }
     100% { transform: translateX(2px) translateY(0) rotate(-45deg); }
   `,
   duration: 4

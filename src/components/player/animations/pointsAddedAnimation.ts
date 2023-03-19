@@ -1,18 +1,26 @@
 import { keyframes } from 'styled-components';
 import { AnimationProps, PlayerAnimationSet } from './PlayerAnimation.type';
 
+const container: AnimationProps = {
+  keyframes: keyframes`
+    0% { opacity: 0; transform: scale(0.75) translateX(0) translateY(0px) rotate(0deg); }
+    10% { opacity: 1; transform: translateX(10px) translateY(-20px) rotate(0deg); }
+    100% { transform: translateX(15px) translateY(-30px) rotate(-10deg); }
+  `,
+  duration: 2
+}
 
 const leftHand: AnimationProps = {
   keyframes: keyframes`
-    0% { transform: translateX(0) translateY(0) rotate(-10deg); }
-    100% { transform: translateX(0) translateY(-1px) rotate(-45deg); }
+    0% { transform: translateX(0) translateY(-20px) rotate(-35deg); }
+    100% { transform: translateX(0) translateY(-25px) rotate(-45deg); }
   `,
   duration: 2
 };
 
 const rightHand: AnimationProps = {
   keyframes: keyframes`
-    0% { transform: translateX(0) translateY(0) rotate(-35deg); }
+    0% { transform: translateX(0) translateY(0) rotate(-15deg); }
     100% { transform: translateX(2px) translateY(0) rotate(-45deg); }
   `,
   duration: 4
@@ -21,9 +29,7 @@ const rightHand: AnimationProps = {
 const eyeLidTop: AnimationProps = {
   keyframes: keyframes`
     0% { bottom: 70%; }
-    10% { bottom: 70%; }
-    20% { bottom: 65%; }
-    100% { bottom: 65%; }
+    100% { bottom: 70%; }
   `,
   duration: 4
 };
@@ -31,16 +37,7 @@ const eyeLidTop: AnimationProps = {
 const eyeLidBottom: AnimationProps = {
   keyframes: keyframes`
     0% { bottom: -140%; }
-    100% { bottom: -100%; }
-  `,
-  duration: 4
-};
-
-const eyePupil: AnimationProps = {
-  keyframes: keyframes`
-    0% { transform: translateX(0) }
-    50% { transform: translateX(-4px) }
-    100% { transform: translateX(-4px) }
+    100% { bottom: -140%; }
   `,
   duration: 4
 };
@@ -65,6 +62,7 @@ const eyes: AnimationProps = {
 
 const animation: PlayerAnimationSet = {
   animationDuration: 8,
+  container,
   mouth,
   leftHand,
   rightHand,
@@ -73,8 +71,6 @@ const animation: PlayerAnimationSet = {
   leftEyeLidTop: eyeLidTop,
   rightEyeLidTop: eyeLidTop,
   leftEyeLidBottom: eyeLidBottom,
-  rightEyeLidBottom: eyeLidBottom,
-  leftEyePupil: eyePupil,
-  rightEyePupil: eyePupil
+  rightEyeLidBottom: eyeLidBottom
 }
 export default animation;
