@@ -92,7 +92,7 @@ const Rounds = () => {
       </Row>
       <Row style={{ flexWrap: 'wrap', justifyContent: 'center' }}>
         {[...Array(rounds)].map((n, i) => <RoundDot background='#ee7788' key={i} />)}
-        {[...Array(maxRounds - rounds)].map((n, i) => <RoundDot background='#cccccc' key={i} />)}
+        {[...Array(Math.max(maxRounds - rounds, 0))].map((n, i) => <RoundDot background='#cccccc' key={i} />)}
       </Row>
       <Row style={{ justifyContent: 'center' }} >
         <ButtonCircle size='sm' onClick={goToPreviousRound} >

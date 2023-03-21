@@ -65,9 +65,10 @@ type Props = {
   onClick?: MouseEventHandler<HTMLDivElement> | undefined,
   color?: 'default' | 'blue' | 'green' | 'red',
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-  opacity?: number
+  opacity?: number,
+  active?: boolean
 }
-const ButtonCircle = ({ children, onClick = () => {}, color='default', size='md', opacity=1 }: Props) => {
+const ButtonCircle = ({ children, onClick = () => {}, color='default', size='md', opacity=1, active=true }: Props) => {
 
   const bgColor = colors[color].bg.join(',');
   const shadowColor = colors[color].shadow.join(',');
@@ -76,11 +77,11 @@ const ButtonCircle = ({ children, onClick = () => {}, color='default', size='md'
   return (
     <Button
       size={SizeMap[size]}
-      onClick={onClick} 
+      onClick={(e) => active ? onClick(e) : null} 
       bg={bgColor} 
       shadow={shadowColor} 
       border={borderColor}
-      opacity={opacity}
+      opacity={active ? opacity : 0.35}
     >
       {children}
     </Button>

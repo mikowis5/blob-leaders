@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fireworks-js/react": "^2.10.2",
     "@react-spring/web": "^9.7.1",
     "@remotion/cli": "^3.3.65",
     "@testing-library/jest-dom": "^5.16.5",
