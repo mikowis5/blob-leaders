@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import LeaderBoardContainer from "./LeaderBoardContainer";
 import PlayerData from "./row/PlayerData.type";
 import PlayerRow from "./row/PlayerRow";

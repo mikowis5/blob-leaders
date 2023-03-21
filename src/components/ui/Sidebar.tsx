@@ -1,8 +1,9 @@
-import { useAtomValue } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 import { emitCustomEvent } from 'react-custom-events';
-import { FaPlusCircle, FaTrophy } from 'react-icons/fa';
+import { FaCamera, FaCameraRetro, FaFilm, FaPhotoVideo, FaPlusCircle, FaTrophy, FaVideo } from 'react-icons/fa';
 import styled from 'styled-components';
 import Events from '../../events/Events';
+import { cameraAtom, CameraState } from '../../state/camera/cameraState';
 import { leaderboardAtom } from '../../state/leaderboard/LeaderboardState';
 import { maxRoundsAtom, roundsAtom } from '../../state/rounds/RoundsState';
 import Row from '../common/Row';
@@ -26,10 +27,24 @@ type Props = {
 }
 const Sidebar = ({ finishAnimationCallback }: Props) => {
 
-  const openPlayerModalHandler = () => emitCustomEvent(Events.OpenAddPlayerEvent);
+  
   const leaderboard = useAtomValue(leaderboardAtom);
   const rounds = useAtomValue(roundsAtom);
   const maxRounds = useAtomValue(maxRoundsAtom);
+  const [cameraState, setCameraState] = useAtom(cameraAtom);
+
+  const openPlayerModalHandler = () => {
+    setCameraState(CameraState.Idle);
+    emitCustomEvent(Events.OpenAddPlayerEvent);
+  }
+
+  const toggleCamera = () => {
+    if(cameraState === CameraState.Idle) {
+      setCameraState(CameraState.Forward);
+    } else {
+      setCameraState(CameraState.Idle);
+    }
+  }
 
   return (
     <SidebarContainer>
@@ -38,6 +53,9 @@ const Sidebar = ({ finishAnimationCallback }: Props) => {
       <Row>
         <ButtonCircle color='green' size='lg' onClick={openPlayerModalHandler}>
           <FaPlusCircle size={20}/>
+        </ButtonCircle>
+        <ButtonCircle opacity={cameraState === CameraState.Idle ? 0.25 : 1} color='default' size='lg' onClick={toggleCamera}>
+          <FaVideo size={20}/>
         </ButtonCircle>
         <ButtonCircle active={leaderboard.length > 2 && rounds === maxRounds} color='blue' size='lg' onClick={finishAnimationCallback}>
           <FaTrophy size={20}/>

@@ -4,7 +4,8 @@ import { emitCustomEvent } from 'react-custom-events';
 import Events, { OpenAddPointsEventData } from '../../../events/Events';
 import { useRef } from 'react';
 import { isAnimatingAtom } from '../../../state/animations/AnimationState';
-import { useAtomValue } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
+import { cameraAtom, CameraState } from '../../../state/camera/cameraState';
 
 const Container = styled.div`
   &:hover {
@@ -27,10 +28,13 @@ type Props = {
 const AddPointsProvider: React.FC<Props> = ({children, playerId} : Props) => {
 
   const isAnimating = useAtomValue(isAnimatingAtom);
+  const [cameraState, setCameraState] = useAtom(cameraAtom);
 
   const emitAddPointsEvent = () => {
     const element = document.getElementById("add-points-provider" + playerId);
     if(isAnimating || !element) return;
+
+    setCameraState(CameraState.Idle);
 
     const offset = element.getBoundingClientRect();
     const data: OpenAddPointsEventData = { 

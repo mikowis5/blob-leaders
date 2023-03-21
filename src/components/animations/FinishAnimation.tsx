@@ -1,4 +1,4 @@
-import { useAtomValue } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { FaArrowLeft } from "react-icons/fa";
 import styled from "styled-components";
 import { leaderboardAtom } from "../../state/leaderboard/LeaderboardState";
@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import useAnimation from "../../animations/animationsHook";
 import ClassInfo from "./ClassInfo";
 import IntroBgAnimation from "./IntroBgAnimation";
+import { cameraAtom, CameraState } from "../../state/camera/cameraState";
 
 const ModalContainer = styled.div`
   position: absolute;
@@ -92,6 +93,7 @@ const FinishAnimation = ({ close }: Props) => {
 
   const leaderboard = useAtomValue(leaderboardAtom);
 
+  const [cameraState, setCameraState] = useAtom(cameraAtom);
   const [animationState, setAnimationState] = useState(0);
   const runTextOffsetsAnimation = useAnimation({
     setter: setAnimationState,
@@ -100,6 +102,7 @@ const FinishAnimation = ({ close }: Props) => {
   });
 
   useEffect(() => {
+    setCameraState(CameraState.Idle);
     runTextOffsetsAnimation();
   }, []);
 
