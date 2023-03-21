@@ -1,4 +1,4 @@
-import Events from "../../../events/Events";
+import Events, { OpenAddPlayerEventData } from "../../../events/Events";
 import useModal from "../../../hooks/modalHook";
 import { ModalBg, ModalContainer } from "../../common/Modal";
 import styled, { keyframes, Keyframes } from 'styled-components';
@@ -14,6 +14,7 @@ import introAnimation from './../../player/animations/introAnimation'
 import IntroBgAnimation from "../../animations/IntroBgAnimation";
 import ClassInfo from "../../animations/ClassInfo";
 import { addPlayerAction } from "../../../state/leaderboard/actions/addPlayerAction";
+import { renamePlayerAction } from "../../../state/leaderboard/actions/renamePlayerAction";
 
 
 const PopupAnimation = keyframes`
@@ -59,13 +60,22 @@ const InputModal = styled.div<{ animation: Keyframes }>`
 
 const AddPlayerModal = () => {
 
+  const renamePlayer = useSetAtom(renamePlayerAction);
   const addPlayer = useSetAtom(addPlayerAction);
   const getNextCharacterId = useSetAtom(selectNextCharacterId);
   const [newCharacterId, setNewCharacterId] = useState<number|null>(2);
   const [modalAnimation, setModalAnimation] = useState(PopupAnimation);
   const [inputValue, setInputValue] = useState("");
+  const [playerId, setPlayerId] = useState<number|null>(null);
   const [hiding, setHiding] = useState(false);
-  const { isModalVisible, hideModal } = useModal(Events.OpenAddPlayerEvent, () => {
+  const { isModalVisible, hideModal } = useModal(Events.OpenAddPlayerEvent, ( data?: OpenAddPlayerEventData ) => {
+
+    if(data && data.playerId) {
+      setPlayerId(data.playerId);
+    } else {
+      setPlayerId(null);
+    }
+
     setInputValue("");
     setNewCharacterId(null);
     setHiding(false);
@@ -79,6 +89,11 @@ const AddPlayerModal = () => {
   const confirmAddingClass = () => {
     if(inputValue.length < 1 || newCharacterId) return;
 
+    if(playerId) {
+      renamePlayer({ playerId, classNumber: inputValue });
+      hideModal();
+      return;
+    }
 
     const characterId = getNextCharacterId();
 
@@ -108,7 +123,7 @@ const AddPlayerModal = () => {
         <ModalContainer style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <InputModal animation={modalAnimation} >
             <span style={{ opacity: 0.25 }}>Nowa klasa</span>
-            <h1 style={{ marginTop: 0 }}>Podaj nazwę klasy:</h1>
+            <h1 style={{ marginTop: 0 }}>{ playerId ? "Podaj nową nazwę:" : "Podaj nazwę klasy:" }</h1>
             <input value={inputValue} onChange={handleInputOnChange} maxLength={7} />
             <Row style={{ justifyContent: 'space-between' }}>
               <ButtonCircle size='xl' onClick={() => hideModal()}>

@@ -27,6 +27,11 @@ export interface OpenAddPointsEventData extends EventData {
   positionY: number
 }
 
+export interface OpenAddPlayerEventData extends EventData {
+  playerId?: number
+}
+
+
 export interface PointsAddedEventData extends EventData {
   playerId: number,
   points: number,

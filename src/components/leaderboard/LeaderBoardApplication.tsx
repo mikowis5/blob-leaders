@@ -32,7 +32,7 @@ const LeaderBoardApplication: React.FC = () => {
   const [showFinish, setShowFinish] = useState(false);
 
   useEffect(() => {
-    setLeaderboardState(entryPlayerData);
+    setLeaderboardState([]);
   }, []);
 
   return (

@@ -17,6 +17,18 @@ const Sign = styled.div`
     text-align: center;
     font-size: 35px;
   }
+
+  &:hover {
+    cursor: pointer;
+
+    h1 {
+      opacity: 0.5;
+      transform: translateY(-3px);
+      transition: 0.25s;
+    }
+
+  }
+
 `;
 
 const SignBack = styled.div`
@@ -33,11 +45,12 @@ const SignBack = styled.div`
 `;
 
 type Props = {
-  classNumber: string
+  classNumber: string,
+  onClick?: React.MouseEventHandler<HTMLElement>
 }
-const ClassSign = ({ classNumber }: Props) => {
+const ClassSign = ({ classNumber, onClick = () => {} }: Props) => {
   return (
-    <div style={{ position: 'relative' }}>
+    <div onClick={onClick} style={{ position: 'relative' }}>
       <SignBack/>
       <Sign>
         <h1>{classNumber}</h1>

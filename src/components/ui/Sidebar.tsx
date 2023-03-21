@@ -35,7 +35,7 @@ const Sidebar = ({ finishAnimationCallback }: Props) => {
 
   const openPlayerModalHandler = () => {
     setCameraState(CameraState.Idle);
-    emitCustomEvent(Events.OpenAddPlayerEvent);
+    emitCustomEvent(Events.OpenAddPlayerEvent, { });
   }
 
   const toggleCamera = () => {

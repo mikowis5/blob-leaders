@@ -1,9 +1,10 @@
 import PlayerData from "./PlayerData.type";
 import Events, { RowStandingMoveUpEventData } from "../../../events/Events";
-import { useAtomValue } from 'jotai';
-import { useCustomEventListener } from 'react-custom-events';
+import { useAtom, useAtomValue } from 'jotai';
+import { emitCustomEvent, useCustomEventListener } from 'react-custom-events';
 import { useEffect, useState } from "react";
 import { isAnimatingMoveRowsAtom } from "../../../state/animations/AnimationState";
+import { cameraAtom, CameraState } from '../../../state/camera/cameraState';
 import styled, { keyframes, Keyframes } from 'styled-components'
 import useAnimation from "../../../animations/animationsHook";
 import EdgePlatform from "./EdgePlatform";
@@ -47,6 +48,7 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
   const rowHeight = useAtomValue(selectRowHeight) + rowMargin;
   const isAnimatingMoveRows = useAtomValue(isAnimatingMoveRowsAtom);
   const [currentAnimation, setCurrentAnimation] = useState(RowAnimation);
+  const [cameraState, setCameraState] = useAtom(cameraAtom);
 
   useEffect(() => {
     setTimeout(() => {
@@ -81,6 +83,11 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
       runUpAnimation();
   });
 
+  const openPlayerModalHandler = () => {
+    setCameraState(CameraState.Idle);
+    emitCustomEvent(Events.OpenAddPlayerEvent, { playerId: data.id });
+  }
+
   return (
     <RowContainer
       animation={currentAnimation}
@@ -93,7 +100,7 @@ const PlayerRow: React.FC<Props> = ({data, place}: Props) => {
           <PlayerFactory characterId={characterId} />
           <div className="blob-shadow"/>
         </div>
-        <ClassSign classNumber={classNumber} />
+        <ClassSign onClick={openPlayerModalHandler} classNumber={classNumber} />
       </MainPlatform>
       <AddPointsProvider playerId={id}>
         <EdgePlatform displayNumber={points} placement='right' />
