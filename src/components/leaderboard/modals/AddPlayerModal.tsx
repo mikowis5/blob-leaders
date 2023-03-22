@@ -15,7 +15,8 @@ import IntroBgAnimation from "../../animations/IntroBgAnimation";
 import ClassInfo from "../../animations/ClassInfo";
 import { addPlayerAction } from "../../../state/leaderboard/actions/addPlayerAction";
 import { renamePlayerAction } from "../../../state/leaderboard/actions/renamePlayerAction";
-
+import Sound from 'react-sound';
+import testSound from "../../../assets/sfx/reload_sfx.mp3";
 
 const PopupAnimation = keyframes`
   0% { transform: scale(65%); opacity: 0; }
@@ -142,6 +143,12 @@ const AddPlayerModal = () => {
           {
             newCharacterId && 
             <CenterScene>
+              {getCharacterStyle(newCharacterId).leaderSfx && !hiding && <Sound
+                url={getCharacterStyle(newCharacterId).leaderSfx ?? ""}
+                playStatus="PLAYING"
+                loop={false}
+                volume={75}
+              />}
               <div style={{ transform: 'scale(1.5)', zIndex: 2 }}>
                 <PlayerCharacter animation={introAnimation} characterStyle={getCharacterStyle(newCharacterId)}/>
               </div>

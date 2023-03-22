@@ -14,6 +14,7 @@ import NewRoundAnimation from "../animations/NewRoundAnimation";
 import { NewLeaderAnimation } from "../animations/NewLeaderAnimation";
 import { FaArrowRight } from "react-icons/fa";
 import FinishAnimation from "../animations/FinishAnimation";
+import LoadGameModal from "./modals/LoadGameModal";
 
 
 const entryPlayerData = _mockupData.players as PlayerData[];
@@ -37,6 +38,7 @@ const LeaderBoardApplication: React.FC = () => {
 
   return (
     <ApplicationContainer>
+      <LoadGameModal/>
       {showFinish && <FinishAnimation close={() => setShowFinish(false)} />}
       <NewLeaderAnimation/>
       <NewRoundAnimation/>

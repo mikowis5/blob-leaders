@@ -8,6 +8,8 @@ import PlayerData from '../leaderboard/row/PlayerData.type';
 import { selectPlayer } from '../../state/leaderboard/selectors/selectPlayer';
 import useAnimation from '../../animations/animationsHook';
 import linesBg from '../../assets/img/anime-lines.jpeg'
+import newRoundSound from '../../assets/sfx/new_round_sound.mp3';
+import Sound from 'react-sound';
 
 
 const Container = styled.div<{ opacity: number }>`
@@ -54,7 +56,7 @@ const RoundHeader = styled.h1<{ left: string, top: string }>`
   z-index: 2;
 `;
 
-export const NewRoundAnimationDuration = 1850;
+export const NewRoundAnimationDuration = 3750;
 
 const NewRoundAnimation = () => {
 
@@ -70,7 +72,7 @@ const NewRoundAnimation = () => {
   const [textOffsets, setTextOffsets] = useState(250);
   const runTextOffsetsAnimation = useAnimation({
     setter: setTextOffsets,
-    frames: [0, 0.1, 2],
+    frames: [0, 0.1, 3.7],
     values: [250, 25, -25]
   });
 
@@ -109,6 +111,12 @@ const NewRoundAnimation = () => {
       {
         isVisible && isAnimating &&
         <Container opacity={opacity}>
+          {1 && <Sound
+            url={newRoundSound}
+            playStatus="PLAYING"
+            loop={false}
+            volume={100}
+          />}
           <RoundLabel style={{ transform: `translateX(${-textOffsets}px)` }}>
             Runda
           </RoundLabel>

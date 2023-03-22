@@ -13,7 +13,9 @@ type PlayerStyle = {
   introBgBack?: string,
   introBgFront?: string,
   leaderBg: string,
-  leaderImg: string
+  leaderImg: string,
+  introSfx?: string,
+  leaderSfx?: string
 }
 
 export default PlayerStyle;

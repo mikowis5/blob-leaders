@@ -5,7 +5,8 @@ enum Events {
   RowStandingMoveUpEvent = 'RowStandingMoveUpEvent',
   OpenAddPlayerEvent = 'OpenAddPlayerEvent',
   NewRoundEvent = 'NewRoundEvent',
-  NewLeaderEvent = 'NewLeaderEvent'
+  NewLeaderEvent = 'NewLeaderEvent',
+  OpenLoadGameEvent = 'OpenLoadGameEvent'
 }
 
 export interface EventData {

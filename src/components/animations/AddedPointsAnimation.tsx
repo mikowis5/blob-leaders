@@ -11,6 +11,8 @@ import linesBg from '../../assets/img/anime-lines.jpeg'
 import PlayerCharacter from '../player/PlayerCharacter';
 import { getCharacterStyle } from '../../data/characterStyles';
 import pointsAddedAnimation from '../player/animations/pointsAddedAnimation';
+import addPointsSound from '../../assets/sfx/points.mp3';
+import Sound from 'react-sound';
 
 
 const Container = styled.div<{ opacity: number }>`
@@ -135,6 +137,12 @@ const AddedPointsAnimation = () => {
               <PlayerName style={{ transform: `translateX(${-textOffsets}px)` }}>
                 Klasa {player.classNumber}
               </PlayerName>
+              <Sound
+                url={addPointsSound}
+                playStatus="PLAYING"
+                loop={false}
+                volume={100}
+              />
               <div style={{ zIndex: 2, position: 'absolute', inset: 0, transform: `translateX(${textOffsets}px)`}}>
                 <AddedPoints 
                   opacity={pointsOpacity} 

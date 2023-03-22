@@ -1,12 +1,13 @@
 import { useAtom, useAtomValue } from 'jotai';
 import { emitCustomEvent } from 'react-custom-events';
-import { FaCamera, FaCameraRetro, FaFilm, FaPhotoVideo, FaPlusCircle, FaTrophy, FaVideo } from 'react-icons/fa';
+import { FaArrowLeft, FaCamera, FaCameraRetro, FaDownload, FaFile, FaFilm, FaPhotoVideo, FaPlusCircle, FaSave, FaTrophy, FaVideo } from 'react-icons/fa';
 import styled from 'styled-components';
 import Events from '../../events/Events';
 import { cameraAtom, CameraState } from '../../state/camera/cameraState';
 import { leaderboardAtom } from '../../state/leaderboard/LeaderboardState';
 import { maxRoundsAtom, roundsAtom } from '../../state/rounds/RoundsState';
 import Row from '../common/Row';
+import SaveStateProvider from '../utils/SaveStateProvider';
 import ButtonCircle from './ButtonCircle';
 import Rounds from './Rounds';
 
@@ -38,6 +39,11 @@ const Sidebar = ({ finishAnimationCallback }: Props) => {
     emitCustomEvent(Events.OpenAddPlayerEvent, { });
   }
 
+  const openLoadGameModal = () => {
+    setCameraState(CameraState.Idle);
+    emitCustomEvent(Events.OpenLoadGameEvent);
+  }
+
   const toggleCamera = () => {
     if(cameraState === CameraState.Idle) {
       setCameraState(CameraState.Forward);
@@ -48,7 +54,16 @@ const Sidebar = ({ finishAnimationCallback }: Props) => {
 
   return (
     <SidebarContainer>
-      <div/>
+      <Row style={{ justifyContent: 'flex-end' }}>
+        <ButtonCircle opacity={0.75} color='default' size='md' onClick={openLoadGameModal}>
+          <FaDownload size={15}/>
+        </ButtonCircle>
+        <SaveStateProvider>
+          <ButtonCircle opacity={0.75} color='blue' size='md'>
+            <FaSave size={15}/>
+          </ButtonCircle>
+        </SaveStateProvider>
+      </Row>
       <Rounds/>
       <Row>
         <ButtonCircle color='green' size='lg' onClick={openPlayerModalHandler}>

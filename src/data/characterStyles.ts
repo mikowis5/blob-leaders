@@ -8,40 +8,47 @@ import baseballIntroBgBack from "../assets/img/characters/baseball_bg_1.png";
 import baseballIntroBgFront from "../assets/img/characters/baseball_bg_3.png";
 import baseballLeaderBg from "../assets/img/characters/baseball_leader_1.png";
 import baseballLeaderImg from "../assets/img/characters/baseball_leader_2.png";
+import baseballIntroSfx from "../assets/sfx/sfx_baseball_intro.mp3";
 import phraohHat from "../assets/img/characters/phraoh_hat.png";
 import phraohIntroBgReg from "../assets/img/characters/phraoh_bg_2.png";
 import phraohIntroBgBack from "../assets/img/characters/phraoh_bg_1.png";
 import phraohIntroBgFront from "../assets/img/characters/phraoh_bg_3.png";
 import phraohLeaderBg from "../assets/img/characters/phraoh_leader_1.png";
 import phraohLeaderImg from "../assets/img/characters/phraoh_leader_2.png";
+import phraohIntroSfx from "../assets/sfx/sfx_phraoh_intro.mp3";
 import cosmoHat from "../assets/img/characters/cosmo_hat.png";
 import cosmoIntroBgBack from "../assets/img/characters/cosmo_bg_1.png";
 import cosmoIntroBgFront from "../assets/img/characters/cosmo_bg_3.png";
 import cosmoLeaderBg from "../assets/img/characters/cosmo_leader_1.png";
 import cosmoLeaderImg from "../assets/img/characters/cosmo_leader_2.png";
+import cosmoIntroSfx from "../assets/sfx/sfx_cosmo_intro.mp3";
 import knightHat from "../assets/img/characters/knight_hat.png";
 import knightLeaderBg from "../assets/img/characters/knight_leader_1.png";
 import knightLeaderImg from "../assets/img/characters/knight_leader_2.png";
 import knightIntroBgBack from "../assets/img/characters/knight_bg_1.png";
 import knightIntroBgReg from "../assets/img/characters/knight_bg_2.png";
 import knightRightHandSpecial from "../assets/img/characters/knight_right_hand_special.png";
+import knightIntroSfx from "../assets/sfx/sfx_knight_intro.mp3";
 import ninjaHat from "../assets/img/characters/ninja_hat.png";
 import ninjaLeaderBg from "../assets/img/characters/ninja_leader_1.png";
 import ninjaLeaderImg from "../assets/img/characters/ninja_leader_2.png";
 import ninjaIntroBgReg from "../assets/img/characters/ninja_bg_2.png";
 import ninjaIntroBgBack from "../assets/img/characters/ninja_bg_1.png";
 import ninjaIntroBgFront from "../assets/img/characters/ninja_bg_3.png";
+import ninjaIntroSfx from "../assets/sfx/sfx_ninja_intro.mp3";
 import cowboyHat from "../assets/img/characters/cowboy_hat.png";
 import cowboyIntroBgReg from "../assets/img/characters/cowboy_bg_2.png";
 import cowboyIntroBgBack from "../assets/img/characters/cowboy_bg_1.png";
 import cowboyLeaderBg from "../assets/img/characters/cowboy_leader_1.png";
 import cowboyLeaderImg from "../assets/img/characters/cowboy_leader_2.png";
+import cowboyIntroSfx from "../assets/sfx/sfx_cowboy_intro.mp3";
 import angelHat from "../assets/img/characters/angel_hat.png";
 import angelIntroBgBack from "../assets/img/characters/angel_bg_1.png";
 import angelIntroBgFront from "../assets/img/characters/angel_bg_3.png";
 import angelLeaderBg from "../assets/img/characters/angel_leader_1.png";
 import angelLeaderImg from "../assets/img/characters/angel_leader_2.png";
 import angelAddBody from "../assets/img/characters/angel_addbody.png";
+import angelIntroSfx from "../assets/sfx/sfx_angel_intro.mp3";
 import afroHat from "../assets/img/characters/afro_hat.png";
 import afroIntroBgReg from "../assets/img/characters/afro_bg_2.png";
 import afroIntroBgBack from "../assets/img/characters/afro_bg_1.png";
@@ -49,6 +56,7 @@ import afroIntroBgFront from "../assets/img/characters/afro_bg_3.png";
 import afroLeaderBg from "../assets/img/characters/afro_leader_1.png";
 import afroLeaderImg from "../assets/img/characters/afro_leader_2.png";
 import afroEyeSpecial from "../assets/img/characters/afro_eye_special.png";
+import afroIntroSfx from "../assets/sfx/sfx_afro_intro.mp3";
 import boxerIntroBgReg from "../assets/img/characters/boxer_bg_2.png";
 import boxerIntroBgBack from "../assets/img/characters/boxer_bg_1.png";
 import boxerIntroBgFront from "../assets/img/characters/boxer_bg_3.png";
@@ -56,6 +64,7 @@ import boxerLeaderBg from "../assets/img/characters/boxer_leader_1.png";
 import boxerLeaderImg from "../assets/img/characters/boxer_leader_2.png";
 import boxerLeftHandSpecial from "../assets/img/characters/boxer_left_hand_special.png";
 import boxerRightHandSpecial from "../assets/img/characters/boxer_right_hand_special.png";
+import boxerIntroSfx from "../assets/sfx/sfx_boxer_intro.mp3";
 import witchHat from "../assets/img/characters/witch_hat.png";
 import witchLeftHandSpecial from "../assets/img/characters/witch_left_hand_special.png";
 import witchIntroBgReg from "../assets/img/characters/witch_bg_2.png";
@@ -63,6 +72,7 @@ import witchIntroBgBack from "../assets/img/characters/witch_bg_1.png";
 import witchIntroBgFront from "../assets/img/characters/witch_bg_3.png";
 import witchLeaderBg from "../assets/img/characters/witch_leader_1.png";
 import witchLeaderImg from "../assets/img/characters/witch_leader_2.png";
+import witchIntroSfx from "../assets/sfx/sfx_witch_intro.mp3";
 import nobleHat from "../assets/img/characters/noble_hat.png";
 import nobleIntroBgReg from "../assets/img/characters/noble_bg_2.png";
 import nobleIntroBgBack from "../assets/img/characters/noble_bg_1.png";
@@ -70,6 +80,7 @@ import nobleIntroBgFront from "../assets/img/characters/noble_bg_3.png";
 import nobleLeaderBg from "../assets/img/characters/noble_leader_1.png";
 import nobleLeaderImg from "../assets/img/characters/noble_leader_2.png";
 import nobleEyeSpecial from "../assets/img/characters/noble_eye_special.png";
+import nobleIntroSfx from "../assets/sfx/sfx_noble_intro.mp3";
 import chefHat from "../assets/img/characters/chef_hat.png";
 import chefIntroBgReg from "../assets/img/characters/chef_bg_2.png";
 import chefIntroBgBack from "../assets/img/characters/chef_bg_1.png";
@@ -77,12 +88,14 @@ import chefIntroBgFront from "../assets/img/characters/chef_bg_3.png";
 import chefLeaderBg from "../assets/img/characters/chef_leader_1.png";
 import chefLeaderImg from "../assets/img/characters/chef_leader_2.png";
 import chefLeftHandSpecial from "../assets/img/characters/chef_left_hand_special.png";
+import chefIntroSfx from "../assets/sfx/sfx_chef_intro.mp3";
 import generalHat from "../assets/img/characters/general_hat.png";
 import generalIntroBgReg from "../assets/img/characters/general_bg_2.png";
 import generalIntroBgBack from "../assets/img/characters/general_bg_1.png";
 import generalIntroBgFront from "../assets/img/characters/general_bg_3.png";
 import generalLeaderBg from "../assets/img/characters/general_leader_1.png";
 import generalLeaderImg from "../assets/img/characters/general_leader_2.png";
+import generalIntroSfx from "../assets/sfx/sfx_general_intro.mp3";
 import vikingHat from "../assets/img/characters/viking_hat.png";
 import vikingIntroBgReg from "../assets/img/characters/viking_bg_2.png";
 import vikingIntroBgBack from "../assets/img/characters/viking_bg_1.png";
@@ -90,6 +103,7 @@ import vikingIntroBgFront from "../assets/img/characters/viking_bg_3.png";
 import vikingLeaderBg from "../assets/img/characters/viking_leader_1.png";
 import vikingLeaderImg from "../assets/img/characters/viking_leader_2.png";
 import vikingLeftHandSpecial from "../assets/img/characters/viking_left_hand_special.png";
+import vikingIntroSfx from "../assets/sfx/sfx_viking_intro.mp3";
 import archerHat from "../assets/img/characters/archer_hat.png";
 import archerIntroBgReg from "../assets/img/characters/archer_bg_2.png";
 import archerIntroBgBack from "../assets/img/characters/archer_bg_1.png";
@@ -97,6 +111,7 @@ import archerIntroBgFront from "../assets/img/characters/archer_bg_3.png";
 import archerLeaderBg from "../assets/img/characters/archer_leader_1.png";
 import archerLeaderImg from "../assets/img/characters/archer_leader_2.png";
 import archerLeftHandSpecial from "../assets/img/characters/archer_left_hand_special.png";
+import archerIntroSfx from "../assets/sfx/sfx_archer_intro.mp3";
 import catHat from "../assets/img/characters/cat_hat.png";
 import catIntroBgReg from "../assets/img/characters/cat_bg_2.png";
 import catIntroBgBack from "../assets/img/characters/cat_bg_1.png";
@@ -104,12 +119,14 @@ import catIntroBgFront from "../assets/img/characters/cat_bg_3.png";
 import catLeaderBg from "../assets/img/characters/cat_leader_1.png";
 import catLeaderImg from "../assets/img/characters/cat_leader_2.png";
 import catEyeSpecial from "../assets/img/characters/cat_eye_special.png";
+import catIntroSfx from "../assets/sfx/sfx_cat_intro.mp3";
 import robotHat from "../assets/img/characters/robot_hat.png";
 import robotIntroBgReg from "../assets/img/characters/robot_bg_2.png";
 import robotIntroBgBack from "../assets/img/characters/robot_bg_1.png";
 import robotLeaderBg from "../assets/img/characters/robot_leader_1.png";
 import robotLeaderImg from "../assets/img/characters/robot_leader_2.png";
 import robotEyeSpecial from "../assets/img/characters/robot_eye_special.png";
+import robotIntroSfx from "../assets/sfx/sfx_robot_intro.mp3";
 import captainHat from "../assets/img/characters/captain_hat.png";
 import captainIntroBgReg from "../assets/img/characters/captain_bg_2.png";
 import captainIntroBgBack from "../assets/img/characters/captain_bg_1.png";
@@ -118,6 +135,7 @@ import captainLeaderBg from "../assets/img/characters/captain_leader_1.png";
 import captainLeaderImg from "../assets/img/characters/captain_leader_2.png";
 import captainEyeSpecial from "../assets/img/characters/captain_eye_special.png";
 import captainRightHandSpecial from "../assets/img/characters/captain_right_hand_special.png";
+import captainIntroSfx from "../assets/sfx/sfx_captain_intro.mp3";
 import painterHat from "../assets/img/characters/painter_hat.png";
 import painterIntroBgReg from "../assets/img/characters/painter_bg_2.png";
 import painterIntroBgBack from "../assets/img/characters/painter_bg_1.png";
@@ -126,6 +144,7 @@ import painterLeaderBg from "../assets/img/characters/painter_leader_1.png";
 import painterLeaderImg from "../assets/img/characters/painter_leader_2.png";
 import painterLeftHandSpecial from "../assets/img/characters/painter_left_hand_special.png";
 import painterRightHandSpecial from "../assets/img/characters/painter_right_hand_special.png";
+import painterIntroSfx from "../assets/sfx/sfx_painter_intro.mp3";
 import policeHat from "../assets/img/characters/police_hat.png";
 import policeIntroBgReg from "../assets/img/characters/police_bg_2.png";
 import policeIntroBgBack from "../assets/img/characters/police_bg_1.png";
@@ -133,6 +152,8 @@ import policeIntroBgFront from "../assets/img/characters/police_bg_3.png";
 import policeLeaderBg from "../assets/img/characters/police_leader_1.png";
 import policeLeaderImg from "../assets/img/characters/police_leader_2.png";
 import policeRightHandSpecial from "../assets/img/characters/police_right_hand_special.png";
+import policeIntroSfx from "../assets/sfx/sfx_police_intro.mp3";
+
 
 export const getCharacterStyle = (characterId: number): PlayerStyle => {
   switch(characterId) {
@@ -150,7 +171,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         introBgReg: baseballIntroBgReg,
         introBgFront: baseballIntroBgFront,
         leaderBg: baseballLeaderBg,
-        leaderImg: baseballLeaderImg
+        leaderImg: baseballLeaderImg,
+        introSfx: baseballIntroSfx,
+        leaderSfx: baseballIntroSfx
       }
 
     case 2:
@@ -163,7 +186,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         introBgReg: phraohIntroBgReg,
         introBgFront: phraohIntroBgFront,
         leaderBg: phraohLeaderBg,
-        leaderImg: phraohLeaderImg
+        leaderImg: phraohLeaderImg,
+        introSfx: phraohIntroSfx,
+        leaderSfx: phraohIntroSfx
       }
 
     case 3:
@@ -176,7 +201,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         introBgReg: empty,
         introBgFront: cosmoIntroBgFront,
         leaderBg: cosmoLeaderBg,
-        leaderImg: cosmoLeaderImg
+        leaderImg: cosmoLeaderImg,
+        introSfx: cosmoIntroSfx,
+        leaderSfx: cosmoIntroSfx
       }
 
     case 4:
@@ -190,7 +217,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         introBgReg: knightIntroBgReg,
         leaderBg: knightLeaderBg,
         leaderImg: knightLeaderImg,
-        introBgFront: empty
+        introBgFront: empty,
+        introSfx: knightIntroSfx,
+        leaderSfx: knightIntroSfx
       }
 
     case 5:
@@ -203,7 +232,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         introBgReg: ninjaIntroBgReg,
         introBgFront: ninjaIntroBgFront,
         leaderBg: ninjaLeaderBg,
-        leaderImg: ninjaLeaderImg
+        leaderImg: ninjaLeaderImg,
+        introSfx: ninjaIntroSfx,
+        leaderSfx: ninjaIntroSfx
       }
 
     case 6:
@@ -216,7 +247,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: cowboyLeaderImg,
         introBgBack: cowboyIntroBgBack,
         introBgReg: cowboyIntroBgReg,
-        introBgFront: empty
+        introBgFront: empty,
+        introSfx: cowboyIntroSfx,
+        leaderSfx: cowboyIntroSfx
       }
 
     case 7:
@@ -230,7 +263,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: angelLeaderImg,
         introBgBack: angelIntroBgBack,
         introBgReg: empty,
-        introBgFront: angelIntroBgFront
+        introBgFront: angelIntroBgFront,
+        introSfx: angelIntroSfx,
+        leaderSfx: angelIntroSfx
       }
 
     case 8:
@@ -244,7 +279,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: afroLeaderImg,
         introBgBack: afroIntroBgBack,
         introBgReg: afroIntroBgReg,
-        introBgFront: afroIntroBgFront
+        introBgFront: afroIntroBgFront,
+        introSfx: afroIntroSfx,
+        leaderSfx: afroIntroSfx
       }
 
     case 9:
@@ -258,7 +295,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: boxerLeaderImg,
         introBgBack: boxerIntroBgBack,
         introBgReg: boxerIntroBgReg,
-        introBgFront: boxerIntroBgFront
+        introBgFront: boxerIntroBgFront,
+        introSfx: boxerIntroSfx,
+        leaderSfx: boxerIntroSfx
       }
 
     case 10:
@@ -272,7 +311,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: witchLeaderImg,
         introBgBack: witchIntroBgBack,
         introBgReg: witchIntroBgReg,
-        introBgFront: witchIntroBgFront
+        introBgFront: witchIntroBgFront,
+        introSfx: witchIntroSfx,
+        leaderSfx: witchIntroSfx
       }
 
     case 11:
@@ -286,7 +327,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: nobleLeaderImg,
         introBgBack: nobleIntroBgBack,
         introBgReg: nobleIntroBgReg,
-        introBgFront: nobleIntroBgFront
+        introBgFront: nobleIntroBgFront,
+        introSfx: nobleIntroSfx,
+        leaderSfx: nobleIntroSfx
       }
 
     case 12:
@@ -300,7 +343,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: chefLeaderImg,
         introBgBack: chefIntroBgBack,
         introBgReg: chefIntroBgReg,
-        introBgFront: chefIntroBgFront
+        introBgFront: chefIntroBgFront,
+        introSfx: chefIntroSfx,
+        leaderSfx: chefIntroSfx
       }
 
     case 13:
@@ -313,7 +358,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: generalLeaderImg,
         introBgBack: generalIntroBgBack,
         introBgReg: generalIntroBgReg,
-        introBgFront: generalIntroBgFront
+        introBgFront: generalIntroBgFront,
+        introSfx: generalIntroSfx,
+        leaderSfx: generalIntroSfx
       }
 
     case 14:
@@ -327,7 +374,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: vikingLeaderImg,
         introBgBack: vikingIntroBgBack,
         introBgReg: vikingIntroBgReg,
-        introBgFront: vikingIntroBgFront
+        introBgFront: vikingIntroBgFront,
+        introSfx: vikingIntroSfx,
+        leaderSfx: vikingIntroSfx
       }
 
     case 15:
@@ -341,7 +390,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: archerLeaderImg,
         introBgBack: archerIntroBgBack,
         introBgReg: archerIntroBgReg,
-        introBgFront: archerIntroBgFront
+        introBgFront: archerIntroBgFront,
+        introSfx: archerIntroSfx,
+        leaderSfx: archerIntroSfx
       }
 
     case 16:
@@ -356,7 +407,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: catLeaderImg,
         introBgBack: catIntroBgBack,
         introBgReg: catIntroBgReg,
-        introBgFront: catIntroBgFront
+        introBgFront: catIntroBgFront,
+        introSfx: catIntroSfx,
+        leaderSfx: catIntroSfx
       }
 
     case 17:
@@ -371,7 +424,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: robotLeaderImg,
         introBgBack: robotIntroBgBack,
         introBgReg: robotIntroBgReg,
-        introBgFront: empty
+        introBgFront: empty,
+        introSfx: robotIntroSfx,
+        leaderSfx: robotIntroSfx
       }
 
     case 18:
@@ -386,7 +441,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: captainLeaderImg,
         introBgBack: captainIntroBgBack,
         introBgReg: captainIntroBgReg,
-        introBgFront: captainIntroBgFront
+        introBgFront: captainIntroBgFront,
+        introSfx: captainIntroSfx,
+        leaderSfx: captainIntroSfx
       }
 
     case 19:
@@ -401,7 +458,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: painterLeaderImg,
         introBgBack: painterIntroBgBack,
         introBgReg: painterIntroBgReg,
-        introBgFront: painterIntroBgFront
+        introBgFront: painterIntroBgFront,
+        introSfx: painterIntroSfx,
+        leaderSfx: painterIntroSfx
       }
 
     case 20:
@@ -415,7 +474,9 @@ export const getCharacterStyle = (characterId: number): PlayerStyle => {
         leaderImg: policeLeaderImg,
         introBgBack: policeIntroBgBack,
         introBgReg: policeIntroBgReg,
-        introBgFront: policeIntroBgFront
+        introBgFront: policeIntroBgFront,
+        introSfx: policeIntroSfx,
+        leaderSfx: policeIntroSfx
       }
       
 

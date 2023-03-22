@@ -16,6 +16,10 @@ import useAnimation from "../../animations/animationsHook";
 import ClassInfo from "./ClassInfo";
 import IntroBgAnimation from "./IntroBgAnimation";
 import { cameraAtom, CameraState } from "../../state/camera/cameraState";
+import fanfareSound from '../../assets/sfx/victory.mp3';
+import fireworksSound from '../../assets/sfx/fireworks.mp3';
+import Sound from 'react-sound';
+
 
 const ModalContainer = styled.div`
   position: absolute;
@@ -113,6 +117,20 @@ const FinishAnimation = ({ close }: Props) => {
   return (
 
     <ModalContainer>
+
+        {<Sound
+          url={fanfareSound}
+          playStatus="PLAYING"
+          loop={false}
+          volume={70}
+        />}
+
+        {<Sound
+          url={fireworksSound}
+          playStatus="PLAYING"
+          loop={true}
+          volume={85}
+        />}
       
       <ModalContainer style={{ opacity: animationState/2  }}>
         <Standings>

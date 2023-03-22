@@ -13,9 +13,11 @@ import PlayerData from "../leaderboard/row/PlayerData.type";
 import PlayerStyle from "../player/PlayerStyle.type";
 import BumpImage from "./BumpImage";
 import ClassInfo from "./ClassInfo";
+import fanfareSound from '../../assets/sfx/fanfare.mp3';
+import Sound from 'react-sound';
 
 
-const NewLeaderAnimationDuration = 5000;
+const NewLeaderAnimationDuration = 6500;
 
 const BgContainer = styled.div<{ opacity: number }>`
   transition: 0.4s;
@@ -31,6 +33,7 @@ export const NewLeaderAnimation = () => {
   const leaderId = useAtomValue(currentLeaderId);
   const getPlayer = useAtomValue(selectPlayer);
   const [player, setPlayer] = useState<PlayerData|null>(null);
+  const [playPlayerSound, setPlayPlayerSound] = useState(false);
   const [playerStyle, setPlayerStyle] = useState<PlayerStyle|null>(null);
 
   const [textOffsets, setTextOffsets] = useState(250);
@@ -61,6 +64,7 @@ export const NewLeaderAnimation = () => {
 
   useCustomEventListener(Events.NewLeaderEvent, () => {
 
+    setPlayPlayerSound(false);
     setIsVisible(true);
     setIsAnimating(true);
     setIsHiding(false);
@@ -71,6 +75,10 @@ export const NewLeaderAnimation = () => {
     if(_player) {
       setPlayerStyle( getCharacterStyle(_player.characterId) );
     }
+
+    setTimeout(() => {
+      setPlayPlayerSound(true);
+    }, 750);
 
     runTextOffsetsAnimation();
     setTimeout(() => {
@@ -94,6 +102,18 @@ export const NewLeaderAnimation = () => {
       {
         isVisible && player && playerStyle &&
         <ModalContainer style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          {!isHiding && <Sound
+            url={fanfareSound}
+            playStatus="PLAYING"
+            loop={false}
+            volume={100}
+          />}
+          {playPlayerSound && !isHiding && <Sound
+            url={playerStyle.leaderSfx ?? ""}
+            playStatus="PLAYING"
+            loop={false}
+            volume={100}
+          />}
           <ClassInfo 
             delay={0} 
             topText={"Klasa " + player.classNumber} 
