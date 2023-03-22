@@ -39,15 +39,15 @@ const SaveStateProvider: React.FC<Props> = ({children} : Props) => {
   const [shouldAutoSave, setShouldAutoSave] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(autoSave, 30000);
+    const interval = setInterval(autoSave, 35000);
     return () => clearInterval(interval);
-  }, []);
+  }, [leaderboard, gameId, shouldAutoSave]);
 
   const autoSave = () => {
     if(leaderboard.length < 3) return;
     setShouldAutoSave(shouldAutoSave + 1);
-    if(!gameId && shouldAutoSave < 5) return;
-    if(!gameId && shouldAutoSave > 5) {
+    if(!gameId && shouldAutoSave < 4) return;
+    if(!gameId && shouldAutoSave > 4) {
       setGameId( makeid(5).toUpperCase() + "-" + Date.now() );
     }
     if(gameId) {
