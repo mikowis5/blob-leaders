@@ -11,6 +11,8 @@
 # production
 /build
 
+/public/states/*.json
+
 # misc
 .DS_Store
 .env.local
